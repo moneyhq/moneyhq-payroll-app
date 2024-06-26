@@ -1,0 +1,43 @@
+// Breakpoints
+$breakpoint-small: 48rem;
+$breakpoint-large: 75rem;
+
+// Media Query Mixins
+@mixin tablet {
+  @media screen and (min-width: $breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+// Max-width Mixins
+
+@mixin tabletmax {
+  max-width: 60rem;
+  margin: auto;
+}
+
+@mixin desktopmax {
+  max-width: 87.5rem;
+  margin: auto;
+}
+
+// Others
+@mixin link-reset {
+  text-decoration: none;
+  margin: 0;
+  color: initial;
+}
+
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  margin-block: 0;
+  padding: 0;
+  padding-inline: 0;
+}
