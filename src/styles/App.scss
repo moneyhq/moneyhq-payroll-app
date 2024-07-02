@@ -1,0 +1,8 @@
+@use "./partials/typography" as *;
+@use "./partials/mixins" as *;
+@use "./partials/resets" as *;
+@use "./partials/colors" as *;
+
+body {
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
