@@ -25,8 +25,6 @@ export default function Employees() {
   const [limit, setLimit] = useState(10);
 
   const navigate = useNavigate();
-  // const limit = 25;
-  // const page = selectedOption.label / limit;
 
   const fetchEmployees = async (page, limit) => {
     try {
@@ -90,7 +88,7 @@ export default function Employees() {
   };
 
   const handlePrevPage = () => {
-    if (currentPage > 0) {
+    if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
   };
