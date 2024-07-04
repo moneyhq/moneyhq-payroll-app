@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  &-body {
+    width: 100%;
+  }
+}

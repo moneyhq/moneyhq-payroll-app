@@ -7,9 +7,8 @@ import payroll from "../../assets/icons/payroll.svg";
 import employees from "../../assets/icons/employees.svg";
 import reports from "../../assets/icons/reports.svg";
 
-export default function SideNav() {
+export default function MainNav({ theme }) {
   const [clickedMenu, setClickedMenu] = useState(false);
-
   const location = useLocation();
   const [activePath, setActivePath] = useState(location.pathname);
 
@@ -33,11 +32,7 @@ export default function SideNav() {
         </p>
       </div>
       {clickedMenu && (
-        <ul
-          className={`main-nav__list ${
-            clickedMenu ? "main-nav__list--visible" : ""
-          }`}
-        >
+        <ul className="main-nav__list main-nav__list--1">
           <li className="main-nav__item">
             <Link className="main-nav__link" to="/">
               Home

@@ -4,5 +4,79 @@
 @use "./partials/colors" as *;
 
 body {
-  font-family: "Open Sans", Helvetica, sans-serif;
+  font-family: "Titillium", sans-serif;
+  background-color: $white;
+  color: $text;
+}
+
+a {
+}
+
+.button-primary {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid $button-border;
+  border-radius: 500px;
+  cursor: pointer;
+  background-color: $button-bg;
+  color: $button-text;
+  transition: background-color 0.3s ease;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $button-hover;
+  }
+}
+
+.button-secondary {
+  padding: 0.5rem 1.25rem;
+  border-radius: 500px;
+  border: 1px solid $button-border-secondary;
+  cursor: pointer;
+  background-color: $button-bg-secondary;
+  color: $button-text-secondary;
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  &:hover {
+    background-color: $button-hover-secondary;
+  }
+}
+
+input,
+select {
+  border: 1px solid $input-color-default;
+  transition: border 0.1s linear;
+  padding: 0.5rem 0.625rem 0.375rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+
+  &:hover {
+    border: 1px solid $input-color-active;
+  }
+
+  &::placeholder {
+    color: $placeholder;
+  }
+}
+
+@keyframes slide-down {
+  0%,
+  30% {
+    margin-top: -8px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
 }
