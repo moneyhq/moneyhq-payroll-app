@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import onClickOutside from "react-onclickoutside";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Dropdown({ options, defaultLabel, onOptionSelected }) {
   const [isOpen, setIsOpen] = useState(false);
