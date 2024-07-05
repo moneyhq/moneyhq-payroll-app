@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     background-color: $text;
+    height: 100vh;
   }
 
   &-body {

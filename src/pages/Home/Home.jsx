@@ -11,10 +11,15 @@ import {
   faArrowRight,
   faCalendarDays,
   faGavel,
+  faChartSimple,
+  faCircle,
+  faBuildingColumns,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import alarm from "../../assets/icons/alarm-time.svg";
 import graph from "../../assets/images/graph-img.png";
+import zenith from "../../assets/images/zenith-bank.svg";
+import animation from "../../assets/images/anima.gif";
 
 export default function Home() {
   const date = formatDate(new Date());
@@ -219,10 +224,84 @@ export default function Home() {
         <div className="home-bottom__body">
           <div className="home-bottom__body--left">
             <div className="card card-graph">
-            <img src={graph} alt="Payroll History Graph" className="card-graph__img"/>
+              <img
+                src={graph}
+                alt="Payroll History Graph"
+                className="card-graph__img"
+              />
             </div>
           </div>
-          <div className="home-bottom__body--right"></div>
+          <div className="home-bottom__body--right">
+            <div className="card card-prevpayroll">
+              <div className="card-prevpayroll__top">
+                <div className="card-prevpayroll__top-left">
+                  <FontAwesomeIcon
+                    icon={faChartSimple}
+                    className="card-prevpayroll__top-left--icon"
+                  />
+                  <span className="card-prevpayroll__top-left--text">
+                    Previous Payroll
+                  </span>
+                </div>
+                <div className="card-prevpayroll__top-right">
+                  <span className="card-prevpayroll__top-right--text">
+                    Jun 2024
+                  </span>
+                </div>
+              </div>
+              <div className="card-prevpayroll__bottom">
+                <div className="card-prevpayroll__bottom--left">
+                  $138,650.00
+                </div>
+                <div className="card-prevpayroll__bottom--right">
+                  <FontAwesomeIcon
+                    icon={faCircle}
+                    className="card-prevpayroll__bottom--right-icon"
+                  />
+                  <span className="card-prevpayroll__bottom--right-text">
+                    PAID
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div className="card card-gif">
+              <div className="card-gif__text">
+                Focus on growth, we've got this bit
+              </div>
+              <div className="card-gif__animation">
+                <img
+                  src={animation}
+                  alt="animation"
+                  className="card-gif__img"
+                />
+              </div>
+            </div>
+            <div className="card  card-pmtaccount">
+              <div className="card-pmtaccount__top card-prevpayroll__top">
+                <div className="card-prevpayroll__top-left">
+                  <FontAwesomeIcon
+                    icon={faBuildingColumns}
+                    className="card-prevpayroll__top-left--icon"
+                  />
+                  <span className="card-prevpayroll__top-left--text">
+                    Payment Account
+                  </span>
+                </div>
+                <div className="card-prevpayroll__top-right">
+                  <span className="card-prevpayroll__top-right--text"></span>
+                </div>
+              </div>
+              <div className="card-pmtaccount__bottom">
+                <div className="card-pmtaccount__bottom-left">
+                  <img src={zenith} alt="Bank Logo" />
+                </div>
+                <div className="card-pmtaccount__bottom-right">
+                  <h3>Zenith Bank UK</h3>
+                  <p>Verified Bank Account</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
