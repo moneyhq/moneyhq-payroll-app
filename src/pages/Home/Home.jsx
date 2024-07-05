@@ -14,6 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import alarm from "../../assets/icons/alarm-time.svg";
+import graph from "../../assets/images/graph-img.png";
 
 export default function Home() {
   const date = formatDate(new Date());
@@ -212,12 +213,17 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
       <div className="home-bottom">
-        <div className="home-bottom__left"></div>
-        <div className="home-bottom__right"></div>
+        <div className="home-bottom__body">
+          <div className="home-bottom__body--left">
+            <div className="card card-graph">
+            <img src={graph} alt="Payroll History Graph" className="card-graph__img"/>
+            </div>
+          </div>
+          <div className="home-bottom__body--right"></div>
+        </div>
       </div>
     </section>
   );
