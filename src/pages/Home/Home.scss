@@ -4,21 +4,33 @@
 .home {
   &-top {
     background-color: $secondary-background;
+
+    @include tablet {
+      max-height: 20rem;
+    }
   }
 
   &-user {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid $border-default;
-    padding: 1rem 2rem;
+    padding: 1rem;
     padding-bottom: 0.5rem;
+
+    @include tablet {
+      padding: 1rem 2rem;
+      padding-bottom: 0.5rem;
+    }
 
     &__left {
       &--name {
         display: block;
         font-weight: 600;
-        font-size: 1.25rem;
-        line-height: 1.5rem;
+
+        @include tablet {
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+        }
       }
 
       &--date {
@@ -27,9 +39,13 @@
     }
 
     &__right {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      display: none;
+
+      @include tablet {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
 
       &--icon {
         color: $link-default;
@@ -50,10 +66,14 @@
   }
 
   &-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
+    display: none;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
 
     &__title {
       &--text {
@@ -67,11 +87,160 @@
     }
 
     &__actions {
-      display: flex;
-      gap: 0.5rem;
+      display: none;
+
+      @include tablet {
+        display: flex;
+        gap: 0.5rem;
+      }
     }
   }
 
   &-box {
+    padding: 1rem;
+
+    @include tablet {
+      padding: 1rem 2rem;
+    }
+
+    &__currentdata {
+      display: flex;
+
+      &--tertiary {
+        align-items: end;
+        gap: 0.25rem;
+      }
+
+      &--var1 {
+        font-size: 1rem;
+        line-height: 1rem;
+        font-weight: 300;
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+          gap: 0.5rem;
+        }
+      }
+
+      &--title {
+        font-size: 0.75rem;
+        padding-bottom: 0.25rem;
+
+        @include tablet {
+          font-size: 1rem;
+        }
+      }
+
+      &--salary-amount {
+        display: block;
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 1.25rem;
+
+        @include tablet {
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+      }
+
+      &--var2 {
+        font-size: 0.6rem;
+        line-height: 0.6rem;
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+
+        @include tablet {
+          font-size: 0.75rem;
+          line-height: 0.75rem;
+          padding-bottom: 0.2rem;
+        }
+      }
+
+      &--arrow {
+        display: flex;
+        align-items: center;
+        border-radius: 500px;
+        padding: 1px 0.2rem;
+        font-size: 0.5rem;
+        gap: 1px;
+
+        @include tablet {
+          gap: 0.15rem;
+          font-size: 0.6rem;
+          background-color: $success;
+          color: $white;
+        }
+
+        &-up {
+          background-color: $success;
+          color: $white;
+        }
+
+        &-down {
+          background-color: $danger;
+          color: $white;
+        }
+      }
+    }
+
+    &__wrapper {
+      @include tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 1rem;
+        margin: 1.5rem auto;
+      }
+    }
+
+    &__card {
+      background-color: $background;
+      border-radius: 0.5rem;
+      box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.1);
+
+      &-top {
+        padding: 1rem 1rem 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &--right {
+          width: 2rem;
+          height: 2rem;
+          border-radius: 100%;
+          background-color: $button-bg;
+          color: $secondary-background;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        &--left {
+          & > span {
+            display: block;
+          }
+        }
+      }
+
+      &-bottom {
+        border-top: 1px solid $border-default;
+        padding: 0.5rem 1rem 0.5rem;
+        font-size: 0.8rem;
+        display: inline-block;
+        width: 100%;
+        opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+          color: $link-default;
+        }
+
+        &--icon {
+          padding-left: 0.25rem;
+          font-size: 0.7rem;
+        }
+      }
+    }
   }
 }

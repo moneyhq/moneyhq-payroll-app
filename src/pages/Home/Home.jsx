@@ -2,10 +2,13 @@ import "./Home.scss";
 import { formatDate } from "../../utils/formatFunctions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCirclePlus,
   faCircleQuestion,
   faHandPointer,
   faPlus,
+  faArrowTrendUp,
+  faArrowTrendDown,
+  faUsers,
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
@@ -60,8 +63,53 @@ export default function Home() {
         </div>
 
         <div className="home-box">
+          <div className="home-box__currentdata home-box__currentdata--tertiary">
+            <div className="home-box__currentdata home-box__currentdata--var1">
+              <div className="home-box__currentdata--title">
+                Upcoming Payroll
+              </div>
+              <div className="home-box__currentdata--salary-amount">
+                $150,000.00
+              </div>
+            </div>
+            <div className="home-box__currentdata home-box__currentdata--var2">
+              <div
+                className={`home-box__currentdata--arrow ${
+                  true
+                    ? "home-box__currentdata--arrow-up"
+                    : "home-box__currentdata--arrow-down"
+                }`}
+              >
+                <FontAwesomeIcon
+                  icon={true ? faArrowTrendUp : faArrowTrendDown}
+                />
+                <div>8%</div>
+              </div>
+
+              <div className="home-box__currentdata--date">
+                1 Jul 2024 - 31 Jul 2024
+              </div>
+            </div>
+          </div>
           <div className="home-box__wrapper home-box__wrapper--primary">
-            <div className="home-box__card home-box__card--primary"></div>
+            <div className="home-box__card home-box__card--primary">
+              <div className="home-box__card-top">
+                <div className="home-box__card-top--left">
+                  <span>Employees</span>
+                  <h2>27</h2>
+                </div>
+                <div className="home-box__card-top--right">
+                  <FontAwesomeIcon icon={faUsers} />
+                </div>
+              </div>
+              <Link to="/employees" className="home-box__card-bottom">
+                View
+                <FontAwesomeIcon
+                  icon={faArrowRight}
+                  className="home-box__card-bottom--icon"
+                />
+              </Link>
+            </div>
             <div className="home-box__card home-box__card--primary"></div>
             <div className="home-box__card home-box__card--primary"></div>
           </div>
