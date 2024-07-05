@@ -13,6 +13,7 @@ import {
   faGavel,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import alarm from "../../assets/icons/alarm-time.svg";
 
 export default function Home() {
   const date = formatDate(new Date());
@@ -161,9 +162,6 @@ export default function Home() {
                     <span className="card-compliance__value">$8,500</span>
                   </div>
                 </div>
-                {/* <div className="card-top__right">
-                  <FontAwesomeIcon icon={faGavel} />
-                </div> */}
               </div>
             </div>
             <div className="card card-events">
@@ -174,14 +172,53 @@ export default function Home() {
                 />
                 Upcoming events
               </div>
+              <div className="card-events__body">
+                <div className="card-events__wrap card-events__wrap--primary">
+                  <div className="card-events__text">PAYE Filing</div>
+                  <div className="card-events__due">
+                    <img
+                      src={alarm}
+                      alt="Item due icon"
+                      className="card-events__due--icon card-events__due--icon-1"
+                    />
+                    <div className="card-events__due-date">
+                      <span className="card-events__due-date--datecount">
+                        Due in 5 days
+                      </span>
+                      <span className="card-events__due-date--date">
+                        10 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="card-events__wrap card-events__wrap--secondary">
+                  <div className="card-events__text">Salary Payment</div>
+                  <div className="card-events__due">
+                    <img
+                      src={alarm}
+                      alt="Item due icon"
+                      className="card-events__due--icon card-events__due--icon-2"
+                    />
+                    <div className="card-events__due-date">
+                      <span className="card-events__due-date--datecount">
+                        Due in 15 days
+                      </span>
+                      <span className="card-events__due-date--date">
+                        20 Aug 2024
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="home-box__wrapper home-box__wrapper--secondary">
-            <div className="card card--secondary"></div>
-          </div>
+
         </div>
       </div>
-      <div className="home-bottom"></div>
+      <div className="home-bottom">
+        <div className="home-bottom__left"></div>
+        <div className="home-bottom__right"></div>
+      </div>
     </section>
   );
 }
