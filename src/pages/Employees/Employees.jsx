@@ -12,9 +12,8 @@ import {
   faPencil,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-import Dropdown from "../../components/Dropdown/Dropdown";
 import { formatDate, formatNumber } from "../../utils/formatFunctions";
-import { generateLabeledMultiples } from "../../utils/generateMultiples";
+import Dropdown from "../../components/Dropdown/Dropdown";
 
 export default function Employees() {
   const [employees, setEmployees] = useState(null);
