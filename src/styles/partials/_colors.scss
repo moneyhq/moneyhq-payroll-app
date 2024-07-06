@@ -1,6 +1,6 @@
 $background: #ffffff;
 $text: #182127;
-$secondary-background: #f5faff;
+$background-secondary: #f5faff;
 $text-secondary: #333333;
 $text-tertiary: #6a7880;
 $border: #d6d6d6;
@@ -26,10 +26,21 @@ $placeholder: #5f789d;
 
 $hover-default: #e8effd;
 $border-default: #d4dde3;
+$border-secondary: #b2cfeb;
 $link-default: #2046cf;
 $icon-default: #2046cf;
 $icon-secondary: #fff;
 $icon-tertiary: #f5faff;
+
+$bg-active: #2046cf;
+$bg-highlight: #e8effd;
+$bg-selected: #f5faff;
+$bg-disabled: #ecf0f3;
+$bg-overlay: rgba(10, 51, 97, 0.5);
+$bg-container1: #ecf0f3;
+$bg-container2: #d4dde3;
+$bg-container3: #92a0aa;
+$bg-container4: #182127;
 
 // :root {
 //   --primary-background: #ffffff;

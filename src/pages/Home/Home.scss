@@ -7,7 +7,7 @@
   flex-direction: column;
 
   &-top {
-    background-color: $secondary-background;
+    background-color: $background-secondary;
 
     @include tablet {
       height: 17.7rem;
@@ -321,7 +321,7 @@
       height: 100%;
 
       &-top {
-        background-color: $secondary-background;
+        background-color: $background-secondary;
       }
     }
 
