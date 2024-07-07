@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./styles/App.scss";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Payroll from "./pages/Payroll/Payroll";
+import Employees from "./pages/Employees/Employees";
+import Reports from "./pages/Reports/Reports";
+import Body from "./components/Body/Body";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Payrun from "./pages/Payrun/Payrun";
+import PayrunReview from "./components/PayrunReview/PayrunReview";
+import PayrunConfirm from "./components/PayrunConfirm/PayrunConfirm";
+import PayrunSuccess from "./components/PayrunSuccess/PayrunSuccess";
+// import useLocalStorage from "use-local-storage";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  // const [theme, setTheme] = useLocalStorage("theme", "light");
+
+  // const switchTheme = () => {
+  //   const newTheme = theme === "light" ? "dark" : "light";
+  //   setTheme(newTheme);
+  // };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Body body={<Home />} />} />
+        <Route path="/payroll" element={<Body body={<Payroll />} />} />
+        {/* <Route path="/payroll/run" element={<Body body={<Payrun />} />} /> */}
+        <Route
+          path="/payroll/review"
+          element={<Body body={<PayrunReview />} />}
+        />
+        <Route
+          path="/payroll/confirm"
+          element={<Body body={<PayrunConfirm />} />}
+        />
+        <Route
+          path="/payroll/success"
+          element={<Body body={<PayrunSuccess />} />}
+        />
+        <Route path="/employees" element={<Body body={<Employees />} />} />
+        <Route path="/employees/:id" element={<Body body={<Employees />} />} />
+        <Route path="/reports" element={<Body body={<Reports />} />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-export default App

@@ -1,0 +1,266 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.employees {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__actions {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+
+  &__subheader {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+  }
+
+  &__search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 30%;
+
+    &--icon-search {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: $placeholder;
+    }
+
+    &--input {
+      padding-left: 2.5rem;
+      width: 100%;
+    }
+  }
+
+  &__filter {
+    display: flex;
+    gap: 0.25rem;
+    min-width: 22rem;
+
+    &-wrapper {
+      position: relative;
+    }
+
+    &-box {
+      appearance: none;
+      padding-right: 1.875rem;
+    }
+
+    &--icon-down {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: $placeholder;
+      pointer-events: none;
+    }
+
+    &--option {
+      padding: 0.5rem;
+
+      &:hover {
+        background-color: $hover-default;
+      }
+    }
+  }
+
+  &__list {
+    &--mobile {
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: space-between;
+
+    &--dropdown {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      & > div {
+        width: 3.5rem;
+      }
+    }
+
+    &--control {
+      display: flex;
+    }
+
+    &--pagecount {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    &--button {
+      border-radius: 500px;
+      border: 1px solid $link-default;
+      width: 2rem;
+      height: 2rem;
+      line-height: 2rem;
+      text-align: center;
+      color: $link-default;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $hover-default;
+      }
+    }
+
+    &--prev {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &--next {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-left: -1px;
+    }
+  }
+}
+
+.employee {
+  &-card {
+    padding: 1rem 0.5rem;
+    border-top: 1px solid $border-default;
+    display: grid;
+    gap: 1px 1px;
+    grid-template-columns: auto 2.5rem;
+    grid-template-rows: 1fr;
+    align-items: center;
+
+    &:hover {
+      background-color: $hover-default;
+    }
+
+    &__name {
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    &__email {
+      font-size: 0.8rem;
+      color: #5f789d;
+      padding-top: 0.25rem;
+    }
+
+    &__action {
+      text-align: center;
+
+      &--icon {
+        color: $placeholder;
+      }
+    }
+  }
+}
+
+.em {
+  &-table {
+    width: 100%;
+
+    &__header {
+      &-row {
+        border-bottom: 2px solid $border-default;
+      }
+
+      &-cell {
+        padding: 0.5rem;
+        padding-top: 2rem;
+
+        &--name,
+        &--contact,
+        &--joindate {
+          text-align: left;
+        }
+
+        &--salary,
+        &--actions {
+          text-align: right;
+        }
+      }
+    }
+
+    &__body {
+      &-link {
+        display: contents;
+      }
+
+      &-row {
+        border-bottom: 1px solid $border-default;
+
+        &:hover {
+          background-color: $hover-default;
+        }
+      }
+
+      &-cell {
+        padding: 0.5rem;
+
+        &--name,
+        &--contact,
+        &--phone,
+        &--joindate {
+          text-align: left;
+        }
+
+        &--salary,
+        &--actions {
+          text-align: right;
+        }
+
+        &--name {
+          color: $link-default;
+        }
+
+        &--status {
+          text-transform: capitalize;
+        }
+
+        &--wrapper {
+          display: flex;
+          gap: 1rem;
+          justify-content: end;
+        }
+      }
+
+      &-span {
+        display: block;
+      }
+
+      &-icon {
+        &--edit {
+          color: $link-default;
+        }
+
+        &--archive {
+          color: $danger;
+        }
+      }
+    }
+  }
+}

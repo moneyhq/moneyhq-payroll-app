@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.main {
+  display: flex;
+  flex-direction: column;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    background-color: $text;
+    height: 100vh;
+  }
+
+  &-body {
+    width: 100%;
+    background-color: $background;
+    border-top-left-radius: 1rem;
+  }
+}
