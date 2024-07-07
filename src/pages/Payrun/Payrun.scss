@@ -8,6 +8,10 @@
     display: block;
   }
 
+  &-content {
+    display: contents;
+  }
+
   &-progress {
     padding: 0 1rem;
     display: grid;

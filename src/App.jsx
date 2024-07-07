@@ -22,7 +22,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Body body={<Home />} />} />
         <Route path="/payroll" element={<Body body={<Payroll />} />} />
-        <Route path="/payroll/run" element={<Body body={<Payrun/>} />} />
+        <Route path="/payroll/run" element={<Body body={<Payrun />} />} />
         <Route path="/employees" element={<Body body={<Employees />} />} />
         <Route path="/employees/:id" element={<Body body={<Employees />} />} />
         <Route path="/reports" element={<Body body={<Reports />} />} />
