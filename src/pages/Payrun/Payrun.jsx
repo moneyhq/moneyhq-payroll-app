@@ -56,8 +56,6 @@ export default function Payrun() {
         {currentStep === 3 && <PayrunSuccess />}
       </div>
 
-      <div className="payrun-summary"></div>
-      <div className="payrun-details"></div>
     </section>
   );
 }

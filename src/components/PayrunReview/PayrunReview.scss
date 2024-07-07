@@ -1,0 +1,194 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.pr {
+  &-summary {
+    padding: 1rem;
+
+    @include desktop {
+      padding: 1rem 2rem;
+    }
+
+    &__wrapper {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 1px solid $border-default;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    &__title {
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+    }
+
+    &__breakdown {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $border-default;
+      border-radius: 0.25rem;
+    }
+
+    &__item {
+      display: grid;
+      grid-template-columns: 1fr 0.65fr;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-top: 1px solid $border-default;
+
+      &:first-child {
+        padding: 0.5rem 1rem;
+        background-color: $bg-container1;
+        font-weight: 600;
+      }
+
+      &-label {
+        font-size: 0.85rem;
+      }
+
+      &-amount {
+        font-weight: 600;
+        font-size: 0.9rem;
+        justify-self: end;
+      }
+    }
+
+    &__tcost {
+      &-label {
+        font-size: 0.9rem;
+      }
+
+      &-amount {
+        font-size: 1rem;
+      }
+    }
+
+    &__date {
+      &-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      &-period {
+        min-width: 10.5rem;
+
+        @include desktop {
+          min-width: 15rem;
+        }
+      }
+
+      &-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $text-tertiary;
+      }
+    }
+
+    &__caution {
+      display: none;
+
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &-picture {
+        width: 50px;
+      }
+
+      &-img {
+        width: 100%;
+      }
+
+      &-text {
+        font-size: 0.75rem;
+        text-align: center;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &-details {
+    padding: 1rem;
+
+    @include desktop {
+      padding: 1rem 2rem;
+    }
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: $text-tertiary;
+    }
+
+    &__table {
+      box-shadow: inset 2px 4px 10px 1px rgba(245, 250, 255, 0.5);
+      padding: 0.75rem 0;
+      border-radius: 0.5rem;
+
+      &-header {
+        border-bottom: 2px solid $border-default;
+      }
+
+      &-body {
+      }
+
+      &-row {
+        display: grid;
+        grid-template-columns: 1.5fr repeat(5, 1fr);
+        align-items: end;
+        padding: 0 1rem;
+
+        &:nth-child(even) {
+          background-color: $bg-selected;
+        }
+      }
+
+      &-name {
+        text-align: left;
+      }
+
+      &-actions {
+        text-align: right;
+        display: flex;
+        gap: 0.5rem;
+
+        &--content {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.9rem;
+        }
+
+        &--edit {
+          color: $text-blue;
+        }
+
+        &--remove {
+          color: $danger;
+        }
+      }
+
+      &-cell {
+        padding: 0.5rem 0;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
