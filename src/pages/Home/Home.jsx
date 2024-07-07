@@ -20,9 +20,13 @@ import alarm from "../../assets/icons/alarm-time.svg";
 import graph from "../../assets/images/graph-img.png";
 import zenith from "../../assets/images/zenith-bank.svg";
 import animation from "../../assets/images/anima.gif";
+import { useModal } from "../../contexts/ModalContext";
+import Modal from "react-modal";
 
 export default function Home() {
   const date = formatDate(new Date());
+  const { openAddEmployees, isAddEmployeesOpen } = useModal();
+
   return (
     <section className="home">
       <div className="home-top">
@@ -51,15 +55,15 @@ export default function Home() {
             <h1 className="home-header__title--text">Home</h1>
           </div>
           <div className="home-header__actions">
-            <Link
-              to="/"
+            <div
+              onClick={openAddEmployees}
               className="button-secondary home-header__btn home-header__btn--secondary"
             >
               <FontAwesomeIcon icon={faPlus} className="home-header__icon" />
               <span>Add Employee</span>
-            </Link>
+            </div>
             <Link
-              to="/"
+              to="/payroll/review"
               className="button-primary home-header__btn home-header__btn--primary"
             >
               <FontAwesomeIcon

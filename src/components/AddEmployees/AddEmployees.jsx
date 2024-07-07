@@ -1,11 +1,12 @@
+import React from "react";
+import Modal from "react-modal";
 import { useModal } from "../../contexts/ModalContext";
 import "./AddEmployees.scss";
 
-Modal.setAppElement("#root");
-
 export default function AddEmployees() {
-  const { isAddEmployeesOpen, openAddEmployees, closeAddEmployees } =
+  const { openAddEmployees, closeAddEmployees, isAddEmployeesOpen } =
     useModal();
+  console.log("AddEmployees rendered:", isAddEmployeesOpen);
 
   return (
     <Modal
@@ -15,7 +16,7 @@ export default function AddEmployees() {
       overlayClassName="modal-overlay"
       className="modal-content"
     >
-      <h2>Form</h2>
+      <h2>Add Employees</h2>
       <form>
         <label>
           Name: <input type="text" name="name" />

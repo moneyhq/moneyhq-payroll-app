@@ -10,8 +10,12 @@ import Payrun from "./pages/Payrun/Payrun";
 import PayrunReview from "./components/PayrunReview/PayrunReview";
 import PayrunConfirm from "./components/PayrunConfirm/PayrunConfirm";
 import PayrunSuccess from "./components/PayrunSuccess/PayrunSuccess";
+import AddEmployees from "./components/AddEmployees/AddEmployees";
 import { ModalProvider } from "./contexts/ModalContext";
+import Modal from "react-modal";
 // import useLocalStorage from "use-local-storage";
+
+Modal.setAppElement("#root");
 
 export default function App() {
   // const [theme, setTheme] = useLocalStorage("theme", "light");
@@ -46,6 +50,10 @@ export default function App() {
             element={<Body body={<Employees />} />}
           />
           <Route path="/reports" element={<Body body={<Reports />} />} />
+          <Route
+            path="/employees/add"
+            element={<Body body={<AddEmployees />} />}
+          />
         </Routes>
       </BrowserRouter>
     </ModalProvider>
