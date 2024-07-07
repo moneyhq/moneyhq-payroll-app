@@ -10,6 +10,7 @@ import Payrun from "./pages/Payrun/Payrun";
 import PayrunReview from "./components/PayrunReview/PayrunReview";
 import PayrunConfirm from "./components/PayrunConfirm/PayrunConfirm";
 import PayrunSuccess from "./components/PayrunSuccess/PayrunSuccess";
+import { ModalProvider } from "./contexts/ModalContext";
 // import useLocalStorage from "use-local-storage";
 
 export default function App() {
@@ -21,27 +22,32 @@ export default function App() {
   // };
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Body body={<Home />} />} />
-        <Route path="/payroll" element={<Body body={<Payroll />} />} />
-        {/* <Route path="/payroll/run" element={<Body body={<Payrun />} />} /> */}
-        <Route
-          path="/payroll/review"
-          element={<Body body={<PayrunReview />} />}
-        />
-        <Route
-          path="/payroll/confirm"
-          element={<Body body={<PayrunConfirm />} />}
-        />
-        <Route
-          path="/payroll/success"
-          element={<Body body={<PayrunSuccess />} />}
-        />
-        <Route path="/employees" element={<Body body={<Employees />} />} />
-        <Route path="/employees/:id" element={<Body body={<Employees />} />} />
-        <Route path="/reports" element={<Body body={<Reports />} />} />
-      </Routes>
-    </BrowserRouter>
+    <ModalProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Body body={<Home />} />} />
+          <Route path="/payroll" element={<Body body={<Payroll />} />} />
+          {/* <Route path="/payroll/run" element={<Body body={<Payrun />} />} /> */}
+          <Route
+            path="/payroll/review"
+            element={<Body body={<PayrunReview />} />}
+          />
+          <Route
+            path="/payroll/confirm"
+            element={<Body body={<PayrunConfirm />} />}
+          />
+          <Route
+            path="/payroll/success"
+            element={<Body body={<PayrunSuccess />} />}
+          />
+          <Route path="/employees" element={<Body body={<Employees />} />} />
+          <Route
+            path="/employees/:id"
+            element={<Body body={<Employees />} />}
+          />
+          <Route path="/reports" element={<Body body={<Reports />} />} />
+        </Routes>
+      </BrowserRouter>
+    </ModalProvider>
   );
 }

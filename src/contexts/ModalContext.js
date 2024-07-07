@@ -4,18 +4,20 @@ const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
 
 export const ModalProvider = ({ children }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddEmployeesOpen, setIsAddEmployeesOpen] = useState(false);
 
-  const openModal = () => {
+  const openAddEmployees = () => {
     setIsModalOpen(true);
   };
 
-  const closeModal = () => {
+  const closeAddEmployees = () => {
     setIsModalOpen(false);
   };
 
   return (
-    <ModalContext.Provider value={{ isModalOpen, openModal, closeModal }}>
+    <ModalContext.Provider
+      value={{ isAddEmployeesOpen, openAddEmployees, closeAddEmployees }}
+    >
       {children}
     </ModalContext.Provider>
   );
