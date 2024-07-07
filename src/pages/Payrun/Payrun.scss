@@ -1,0 +1,29 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.payrun {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  &-progress {
+    padding: 0 1rem;
+
+    @include desktop {
+      padding-left: 2rem;
+    }
+
+    &__wrapper {
+      width: 70%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      font-size: 0.75rem;
+
+      @include desktop {
+        width: 50%;
+      }
+    }
+  }
+}

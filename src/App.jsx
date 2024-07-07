@@ -6,6 +6,7 @@ import Employees from "./pages/Employees/Employees";
 import Reports from "./pages/Reports/Reports";
 import Body from "./components/Body/Body";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Payrun from "./pages/Payrun/Payrun";
 // import useLocalStorage from "use-local-storage";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Body body={<Home />} />} />
         <Route path="/payroll" element={<Body body={<Payroll />} />} />
+        <Route path="/payroll/run" element={<Body body={<Payrun/>} />} />
         <Route path="/employees" element={<Body body={<Employees />} />} />
         <Route path="/employees/:id" element={<Body body={<Employees />} />} />
         <Route path="/reports" element={<Body body={<Reports />} />} />
