@@ -1,0 +1,447 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.payroll {
+  &-user {
+    border-bottom: none;
+  }
+
+  &-header {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    @include desktop {
+      padding: 1rem 2rem;
+    }
+
+    &__title {
+      &--text {
+        font-weight: 600;
+        opacity: 0.3;
+      }
+    }
+
+    &__icon {
+      padding-right: 0.5rem;
+    }
+
+    &__actions {
+      visibility: hidden;
+    }
+  }
+
+  &-nav {
+    display: flex;
+
+    @include desktop {
+      padding: 0 2rem;
+    }
+
+    &__item {
+      padding: 0.5rem 1rem;
+      border-top: 1px solid $border-default;
+      border-top-right-radius: 0.5rem;
+      border-right: 1px solid $border-default;
+      font-weight: 600;
+      cursor: pointer;
+
+      @include desktop {
+        border-left: 1px solid $border-default;
+        border-top-left-radius: 0.5rem;
+      }
+
+      &--disabled {
+        color: $text-tertiary;
+        border: none;
+        border-bottom: 1px solid $border-default;
+        font-weight: 400;
+      }
+
+      &--dummy {
+        flex: 1;
+        border: none;
+        border-bottom: 1px solid $border-default;
+      }
+    }
+  }
+
+  &-summary {
+    padding: 1rem;
+
+    @include desktop {
+      padding: 0 2rem;
+    }
+
+    &__header {
+      @include tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 1rem;
+      }
+
+      @include desktop {
+        padding: 1.5rem;
+        border-right: 1px solid $border-default;
+        border-left: 1px solid $border-default;
+      }
+    }
+
+    &__button {
+      &--add {
+        display: none;
+      }
+    }
+
+    &__title {
+      color: $text-secondary;
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding-bottom: 0.75rem;
+
+      @include tablet {
+        padding-bottom: 0;
+      }
+    }
+
+    &__actions {
+      display: none;
+
+      @include tablet {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
+
+    &__content {
+      @include desktop {
+        display: grid;
+        grid-template-columns: 1.85fr 1fr;
+        padding: 0 1.5rem 1.5rem;
+        border-right: 1px solid $border-default;
+        border-left: 1px solid $border-default;
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        border-bottom: 1px solid $border-default;
+        box-shadow: inset 1px -4px 10px 1px rgba(0, 0, 0, 0.03);
+        column-gap: 1rem;
+      }
+    }
+
+    &__column {
+      &--left {
+        display: grid;
+        row-gap: 1rem;
+
+        @include tablet {
+          grid-template-columns: 1fr 1.25fr;
+          column-gap: 1rem;
+        }
+
+        @include desktop {
+          grid-template-columns: 1fr 1.1fr;
+        }
+      }
+
+      &--right {
+        padding: 1rem 0;
+
+        @include tablet {
+          display: none;
+        }
+
+        @include desktop {
+          display: block;
+          border-left: 1px solid $border-default;
+          padding: 0;
+          padding-left: 1rem;
+        }
+      }
+    }
+
+    &__sub-column {
+      &--a {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 1rem;
+      }
+
+      &--b {
+        padding-bottom: 1rem;
+        background-color: $bg-container1;
+        border-radius: 0.5rem;
+
+        @include tablet {
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    &__item {
+      padding: 1.5rem;
+      background-color: $background-secondary;
+      border-radius: 0.5rem;
+
+      &--bottom {
+        background-color: rgba($color: $background-secondary, $alpha: 0.5);
+      }
+    }
+
+    &__amount {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    &__label {
+      color: $text-tertiary;
+    }
+
+    &__deduction {
+      &-title {
+        padding: 1rem 2rem 0.75rem;
+        border-bottom: 1px solid $border-default;
+        align-content: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+
+        @include tablet {
+          padding: 1rem 2rem;
+          font-size: 1.25rem;
+        }
+
+        @include desktop {
+          margin-bottom: 0.75rem;
+        }
+      }
+
+      &-item {
+        align-content: center;
+        padding: 0.5rem 2rem;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+      }
+
+      &-amount {
+        text-align: right;
+        font-weight: 600;
+      }
+    }
+
+    &__info {
+      &-item {
+        padding-bottom: 1rem;
+        display: grid;
+
+        &--payout-date {
+          grid-template-columns: auto 1fr;
+          column-gap: 1rem;
+          align-items: center;
+        }
+
+        &--total-employees {
+          grid-template-rows: 1fr auto;
+          padding-top: 1rem;
+        }
+      }
+
+      &-data {
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      &-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $bg-container1;
+        font-size: 1.75rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        color: $text-tertiary;
+        border-radius: 0.5rem;
+      }
+
+      &-label {
+        color: $text-tertiary;
+      }
+    }
+  }
+
+  &-history {
+    display: none;
+
+    @include tablet {
+      display: block;
+      padding: 0 1rem 1rem;
+    }
+
+    @include desktop {
+      padding: 1rem 2rem 2rem;
+    }
+
+    &__caption {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding-top: 1rem;
+
+      @include desktop {
+        padding: 1rem;
+      }
+    }
+
+    &__wrapper {
+      box-shadow: inset 2px 4px 10px 1px rgba(245, 250, 255, 0.5);
+      border-radius: 0.5rem;
+
+      @include desktop {
+        padding: 0 1rem;
+      }
+    }
+
+    &__table {
+      width: 100%;
+
+      &-row {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        align-items: center;
+
+        @include desktop {
+          grid-template-columns: 2fr repeat(2, 0.75fr) 1fr repeat(2, 0.75fr) 0.9fr;
+        }
+      }
+    }
+
+    &__header {
+      &-row {
+        border-bottom: 1px solid $border-default;
+      }
+
+      &-cell {
+        text-align: left;
+        padding: 1rem 0 0.5rem;
+      }
+
+      &--paydate,
+      &--employees,
+      &--approval {
+        display: none;
+
+        @include desktop {
+          display: table-cell;
+        }
+      }
+
+      &--employees,
+      &--status,
+      &--approval,
+      &--actions {
+        text-align: center;
+      }
+
+      &--amount {
+        text-align: right;
+        padding-right: 1rem;
+      }
+    }
+
+    &__body {
+      &-row {
+        transition: all 0.3s ease;
+
+        &:nth-child(even) {
+          background-color: $bg-selected;
+        }
+      }
+
+      &-cell {
+        padding: 1rem 0;
+      }
+
+      &-paydate,
+      &-employees,
+      &-approval {
+        display: none;
+        @include desktop {
+          display: table-cell;
+        }
+      }
+
+      &-employees {
+        text-align: center;
+      }
+
+      &-amount {
+        text-align: right;
+        padding-right: 1rem;
+      }
+
+      &-status,
+      &-approval {
+        text-align: -webkit-center;
+      }
+
+      &-actions {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        color: $button-bg;
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-align: center;
+        padding: 0.625rem 0;
+        transition: all 0.3s ease;
+
+        &--1 {
+          gap: 0.25rem;
+        }
+
+        &--item {
+          display: grid;
+          font-weight: 400;
+          justify-items: center;
+
+          &:hover {
+            color: $text-secondary;
+          }
+        }
+      }
+    }
+
+    &__child {
+      font-size: 0.75rem;
+      padding: 0 0.35rem;
+      border-radius: 500px;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+
+      &--icon {
+        font-size: 0.2rem;
+        padding-right: 0.25rem;
+      }
+
+      &--done {
+        background-color: rgba($color: $success, $alpha: 0.2);
+        color: $success;
+      }
+
+      &--pending {
+        background-color: rgba($color: $warning, $alpha: 0.2);
+        color: darken($color: $warning, $amount: 0.5);
+      }
+
+      &--draft {
+        background-color: rgba($color: $bg-active, $alpha: 0.2);
+        color: $bg-active;
+      }
+    }
+  }
+}

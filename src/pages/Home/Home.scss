@@ -7,7 +7,7 @@
   flex-direction: column;
 
   &-top {
-    background-color: $secondary-background;
+    background-color: $background-secondary;
 
     @include tablet {
       height: 17.7rem;
@@ -321,7 +321,7 @@
       height: 100%;
 
       &-top {
-        background-color: $secondary-background;
+        background-color: $background-secondary;
       }
     }
 
@@ -494,5 +494,9 @@
     padding: 1rem;
     text-align: center;
     box-shadow: inset 2px -7px 15px -3px rgba(0, 0, 0, 0.1);
+
+    &__text {
+      font-size: 0.85rem;
+    }
   }
 }
