@@ -3,14 +3,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDate } from "../../utils/formatFunctions";
 import {
   faCircle,
+  faCircleCheck,
   faCircleQuestion,
   faHandPointer,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function Payrun() {
   const date = formatDate(new Date());
+  const [isProgressCurrent, setIsProgressCurrent] = useState(true);
 
   return (
     <section className="payrun">
@@ -41,31 +44,59 @@ export default function Payrun() {
       </div>
 
       <div className="payrun-progress">
-        <hr />
         <div className="payrun-progress__wrapper">
-          <div className="payrun-progess__step payrun-progess__step--current">
+          <div className="payrun-progress__step payrun-progress__step--finished">
+            <div
+              className={`payrun-progress__icon payrun-progress__icon--finished`}
+            >
+              1
+            </div>
             <FontAwesomeIcon
-              icon={faCircle}
-              className="payrun-progress__icon payrun-progress__icon--active"
+              icon={faCircleCheck}
+              className={`payrun-progress__mark payrun-progress__mark--finished`}
             />
-            <div className="payrun-progess__text">Review Payroll</div>
+            <div
+              className={`payrun-progress__text payrun-progress__text--finished`}
+            >
+              Review Payroll
+            </div>
           </div>
-          <div className="payrun-progess__step payrun-progess__step--middle">
+          <hr
+            className={`payrun-progress__line payrun-progress__line--finished`}
+          />
+        </div>
+
+        <div className="payrun-progress__wrapper">
+          <div className="payrun-progress__step payrun-progress__step--current">
+            <div
+              className={`payrun-progress__icon payrun-progress__icon--current`}
+            >
+              2
+            </div>
             <FontAwesomeIcon
-              icon={faCircle}
-              className="payrun-progress__icon"
+              icon={faCircleCheck}
+              className={`payrun-progress__mark payrun-progress__mark--current`}
             />
-            <div className="payrun-progess__text">Confirm and Submit</div>
+            <div
+              className={`payrun-progress__text payrun-progress__text--current`}
+            >
+              Confirm and Submit
+            </div>
           </div>
-          <div className="payrun-progess__step">
-            <FontAwesomeIcon
-              icon={faCircle}
-              className="payrun-progress__icon"
-            />
-            <div className="payrun-progess__text">Success</div>
+          <hr
+            className={`payrun-progress__line payrun-progress__line--current`}
+          />
+        </div>
+
+        <div className="payrun-progress__wrapper">
+          <div className="payrun-progress__step payrun-progress__step--waiting">
+            <div className="payrun-progress__icon">3</div>
+            <div className="payrun-progress__text">Success</div>
           </div>
+          <hr className="payrun-progress__line" />
         </div>
       </div>
+
       <div className="payrun-summary"></div>
       <div className="payrun-details"></div>
     </section>
