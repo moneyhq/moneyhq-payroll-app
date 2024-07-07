@@ -2,6 +2,7 @@ import "./Payroll.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendar,
+  faCircle,
   faCircleQuestion,
   faHandPointer,
   faPlus,
@@ -70,9 +71,9 @@ export default function Payroll() {
 
       <div className="payroll-summary">
         <div className="payroll-summary__header">
-          <h2 className="payroll-summary__title">
+          <div className="payroll-summary__title">
             Payroll summary for July 2024
-          </h2>
+          </div>
           <div className="payroll-summary__actions">
             <Link className="button-secondary payroll-summary__button payroll-summary__button--add">
               Add Employee
@@ -88,7 +89,7 @@ export default function Payroll() {
         <div className="payroll-summary__content">
           <div className="payroll-summary__column payroll-summary__column--left">
             <div className="payroll-summary__sub-column payroll-summary__sub-column--a">
-              <div className="payroll-summary__item" payroll-summary__item--top>
+              <div className="payroll-summary__item payroll-summary__item--top">
                 <div className="payroll-summary__amount">$150,000</div>
                 <div className="payroll-summary__label">Total Payroll Cost</div>
               </div>
@@ -145,59 +146,129 @@ export default function Payroll() {
       </div>
 
       <div className="payroll-history">
-        <table className="payroll-history__table">
-          
-          <thead class="payroll-history__header">
-            <tr class="payroll-history__header-row">
-              <th class="payroll-history__header-cell payroll-history__header-cell--payrun">
-                Pay Run
-              </th>
-              <th class="payroll-history__header-cell payroll-history__header-cell--paydate">
-                Pay Date
-              </th>
-              <th class="payroll-history__header-cell payroll-history__header-cell--employees">
-                Employees
-              </th>
-              <th class="payroll-history__header-cell payroll-history__header-cell--amount">
-                Total Amount
-              </th>
-              <th class="payroll-history__header-cell payroll-history__header-cell--status">
-                Status
-              </th>
-              <th class="payroll-history__header-cell payroll-history__header-cell--approval">
-                Approval Date
-              </th>
-              <th class="payroll-history__header-cell payroll-history__header-cell--actions">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody class="payroll-history__body">
-            <tr class="payroll-history__body-row">
-              <td class="payroll-history__body-cell payroll-history__body-cell--payrun">
-                Pay Run
-              </td>
-              <td class="payroll-history__body-cell payroll-history__body-cell--paydate">
-                Pay Date
-              </td>
-              <td class="payroll-history__body-cell payroll-history__body-cell--employees">
-                Employees
-              </td>
-              <td class="payroll-history__body-cell payroll-history__body-cell--amount">
-                Total Amount
-              </td>
-              <td class="payroll-history__body-cell payroll-history__body-cell--status">
-                Status
-              </td>
-              <td class="payroll-history__body-cell payroll-history__body-cell--approval">
-                Approval Date
-              </td>
-              <td class="payroll-history__body-cell payroll-history__body-cell--actions">
-                Actions
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="payroll-history__caption">Payroll History</div>
+        <div className="payroll-history__wrapper">
+          <div className="payroll-history__table">
+            <div className="payroll-history__header">
+              <div className="payroll-history__table-row payroll-history__header-row">
+                <div className="payroll-history__header-cell payroll-history__header--payrun">
+                  Pay Run
+                </div>
+                <div className="payroll-history__header-cell payroll-history__header--paydate">
+                  Pay Date
+                </div>
+                <div className="payroll-history__header-cell payroll-history__header--employees">
+                  Employees
+                </div>
+                <div className="payroll-history__header-cell payroll-history__header--amount">
+                  Total Amount
+                </div>
+                <div className="payroll-history__header-cell payroll-history__header--status">
+                  Status
+                </div>
+                <div className="payroll-history__header-cell payroll-history__header--approval">
+                  Approval
+                </div>
+                <div className="payroll-history__header-cell payroll-history__header--actions">
+                  Actions
+                </div>
+              </div>
+            </div>
+            <div className="payroll-history__body">
+              <div className="payroll-history__table-row payroll-history__body-row">
+                <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-payrun payroll-history__body-payrun--1">
+                  Monthly Salary: 01 Jul - 31 Jul 2024
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-cell--1  payroll-history__body-paydate payroll-history__body-paydate--1">
+                  25 Jul 2024
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-employees payroll-history__body-employees--1">
+                  27
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-amount payroll-history__body-amount--1">
+                  $150,000.00
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-approval payroll-history__body-approval--1">
+                  <div className="payroll-history__child payroll-history__child--pending payroll-history__child-approval">
+                    <FontAwesomeIcon
+                      icon={faCircle}
+                      className="payroll-history__child--icon payroll-history__child-approval--icon"
+                    />
+                    <span className="payroll-history__child--text payroll-history__child-approval--text">
+                      PENDING
+                    </span>
+                  </div>
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-status payroll-history__body-status--1">
+                  <div className="payroll-history__child payroll-history__child--draft payroll-history__child-status">
+                    <FontAwesomeIcon
+                      icon={faCircle}
+                      className="payroll-history__child--icon payroll-history__child-status--icon"
+                    />
+                    <span className="payroll-history__child--text payroll-history__child-status--text">
+                      DRAFT
+                    </span>
+                  </div>
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-actions payroll-history__body-actions--1">
+                  REVIEW
+                </div>
+              </div>
+              <div className="payroll-history__table-row payroll-history__body-row">
+                <div className="payroll-history__body-cell payroll-history__body-payrun">
+                  Monthly Salary: 01 Jun - 31 Jun 2024
+                </div>
+                <div className="payroll-history__body-cell  payroll-history__body-paydate">
+                  25 Jun 2024
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-employees">
+                  27
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-amount">
+                  $138,000.00
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-approval">
+                  24 Jun 2024
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-status">
+                  <div className="payroll-history__child payroll-history__child--done payroll-history__child-status">
+                    <FontAwesomeIcon
+                      icon={faCircle}
+                      className="payroll-history__child--icon payroll-history__child-status--icon"
+                    />
+                    <span className="payroll-history__child--text payroll-history__child-status--text">
+                      DONE
+                    </span>
+                  </div>
+                </div>
+                <div className="payroll-history__body-cell payroll-history__body-actions">
+                  {/* <div className="payroll-history__body-actions--items">
+                    <div className="payroll-history__body-actions--item">
+                      <img
+                        src=""
+                        alt=""
+                        className="payroll-history__body-actions--item-icon"
+                      />
+                      <div className="payroll-history__body-actions--item-text">
+                        View
+                      </div>
+                    </div>
+                    <div className="payroll-history__body-actions--item">
+                      <img
+                        src=""
+                        alt=""
+                        className="payroll-history__body-actions--item-icon"
+                      />
+                      <div className="payroll-history__body-actions--item-text">
+                        Download
+                      </div>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

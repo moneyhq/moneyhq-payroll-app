@@ -102,6 +102,7 @@
     &__title {
       color: $text-secondary;
       font-size: 1.25rem;
+      font-weight: 600;
       padding-bottom: 0.75rem;
 
       @include tablet {
@@ -280,37 +281,137 @@
       padding: 0 1rem 1rem;
     }
 
-    &__table {
-      width: 100%;
+    @include desktop {
+      padding: 1rem 2rem 2rem;
     }
 
-    &__header {
-      &-cell {
-        text-align: left;
+    &__caption {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding-top: 1rem;
 
-        &--paydate,
-        &--employees,
-        &--approval {
-          display: none;
+      @include desktop {
+        padding: 1rem;
+      }
+    }
 
-          @include desktop {
-            display: table-cell;
-          }
+    &__wrapper {
+      box-shadow: inset 2px 4px 10px 1px rgba(245, 250, 255, 0.5);
+      border-radius: 0.5rem;
+
+      @include desktop {
+        padding: 0 1rem;
+      }
+    }
+
+    &__table {
+      width: 100%;
+
+      &-row {
+        display: grid;
+        grid-template-columns: 2fr repeat(3, 1fr);
+        align-items: center;
+
+        @include desktop {
+          grid-template-columns: 2fr repeat(2, 0.75fr) 1fr repeat(2, 0.75fr) 0.9fr;
         }
       }
     }
 
-    &__body {
-      &-cell {
-        &--paydate,
-        &--employees,
-        &--approval {
-          display: none;
+    &__header {
+      &-row {
+        border-bottom: 1px solid $border-default;
+      }
 
-          @include desktop {
-            display: table-cell;
-          }
+      &-cell {
+        text-align: left;
+        padding: 1rem 0 0.5rem;
+      }
+
+      &--paydate,
+      &--employees,
+      &--approval {
+        display: none;
+
+        @include desktop {
+          display: table-cell;
         }
+      }
+
+      &--employees,
+      &--status,
+      &--approval,
+      &--actions {
+        text-align: center;
+      }
+
+      &--amount {
+        text-align: right;
+        padding-right: 1rem;
+      }
+    }
+
+    &__body {
+      &-row {
+        &:nth-child(even) {
+          background-color: $bg-selected;
+        }
+      }
+
+      &-cell {
+        padding: 1rem 0;
+      }
+
+      &-paydate,
+      &-employees,
+      &-approval {
+        display: none;
+        @include desktop {
+          display: table-cell;
+        }
+      }
+
+      &-employees {
+        text-align: center;
+      }
+
+      &-amount {
+        text-align: right;
+        padding-right: 1rem;
+      }
+
+      &-status,
+      &-approval {
+        text-align: -webkit-center;
+      }
+    }
+
+    &__child {
+      font-size: 0.75rem;
+      padding: 0 0.35rem;
+      border-radius: 500px;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+
+      &--icon {
+        font-size: 0.2rem;
+        padding-right: 0.25rem;
+      }
+
+      &--done {
+        background-color: rgba($color: $success, $alpha: 0.2);
+        color: $success;
+      }
+
+      &--pending {
+        background-color: rgba($color: $warning, $alpha: 0.2);
+        color: darken($color: $warning, $amount: 0.5);
+      }
+
+      &--draft {
+        background-color: rgba($color: $bg-active, $alpha: 0.2);
+        color: $bg-active;
       }
     }
   }
