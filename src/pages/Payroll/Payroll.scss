@@ -353,6 +353,8 @@
 
     &__body {
       &-row {
+        transition: all 0.3s ease;
+
         &:nth-child(even) {
           background-color: $bg-selected;
         }
@@ -383,6 +385,33 @@
       &-status,
       &-approval {
         text-align: -webkit-center;
+      }
+
+      &-actions {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        color: $button-bg;
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-align: center;
+        padding: 0.625rem 0;
+        transition: all 0.3s ease;
+
+        &--1 {
+          gap: 0.25rem;
+        }
+
+        &--item {
+          display: grid;
+          font-weight: 400;
+          justify-items: center;
+
+          &:hover {
+            color: $text-secondary;
+          }
+        }
       }
     }
 

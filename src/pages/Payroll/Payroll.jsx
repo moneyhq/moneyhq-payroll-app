@@ -4,6 +4,8 @@ import {
   faCalendar,
   faCircle,
   faCircleQuestion,
+  faDownload,
+  faEye,
   faHandPointer,
   faPlus,
   faUsers,
@@ -211,7 +213,10 @@ export default function Payroll() {
                   </div>
                 </div>
                 <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-actions payroll-history__body-actions--1">
-                  REVIEW
+                  {/* <div className="payroll-history__body-review"> */}
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                    <span>REVIEW </span>
+                  {/* </div> */}
                 </div>
               </div>
               <div className="payroll-history__table-row payroll-history__body-row">
@@ -242,28 +247,14 @@ export default function Payroll() {
                   </div>
                 </div>
                 <div className="payroll-history__body-cell payroll-history__body-actions">
-                  {/* <div className="payroll-history__body-actions--items">
-                    <div className="payroll-history__body-actions--item">
-                      <img
-                        src=""
-                        alt=""
-                        className="payroll-history__body-actions--item-icon"
-                      />
-                      <div className="payroll-history__body-actions--item-text">
-                        View
-                      </div>
-                    </div>
-                    <div className="payroll-history__body-actions--item">
-                      <img
-                        src=""
-                        alt=""
-                        className="payroll-history__body-actions--item-icon"
-                      />
-                      <div className="payroll-history__body-actions--item-text">
-                        Download
-                      </div>
-                    </div>
-                  </div> */}
+                  <div className="payroll-history__body-actions--item">
+                  <FontAwesomeIcon icon={faEye} />
+                  View
+                  </div>
+                  <div className="payroll-history__body-actions--item">
+                  <FontAwesomeIcon icon={faDownload} />
+                    Download
+                  </div>
                 </div>
               </div>
             </div>
