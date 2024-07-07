@@ -2,25 +2,50 @@ import "./PayrunReview.scss";
 import {
   faCircleCheck,
   faCircleMinus,
+  faCircleQuestion,
   faPencil,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Dropdown from "../Dropdown/Dropdown.jsx";
-import caution from "../../assets/images/caution.gif";
+import { formatDate } from "../../utils/formatFunctions";
+import { Link } from "react-router-dom";
 
 export default function PayrunReview() {
-  const currPayPeriod = [
-    {
-      value: "1 Jul 2024 - 31 Jul 2024",
-      label: "1 Jul 2024 - 31 Jul 2024",
-    },
-  ];
+  const date = formatDate(new Date());
 
   return (
     <section className="pr">
+      <div className="home-user payroll-user">
+        <div className="home-user__left">
+          <span className="home-user__left--name">Welcome Sammy!</span>
+          <span className="home-user__left--date">{date}</span>
+        </div>
+        <div className="home-user__right">
+          <FontAwesomeIcon
+            icon={faCircleQuestion}
+            className="home-user__right--icon"
+          />
+          <div className="home-user__right--avi">
+            <img
+              className="home-user__right--img"
+              src="https://placehold.co/100"
+              alt="Profile Picture"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="payroll-header">
+        <div className="payroll-header__title">
+          <h1 className="payroll-header__title--text">Run Payroll</h1>
+        </div>
+      </div>
+
       <div className="payrun-progress">
         <div className="payrun-progress__wrapper">
-          <div className="payrun-progress__step payrun-progress__step--current">
+          <Link
+            to="/payroll/review"
+            className="payrun-progress__step payrun-progress__step--current"
+          >
             <div
               className={`payrun-progress__icon payrun-progress__icon--current`}
             >
@@ -35,7 +60,7 @@ export default function PayrunReview() {
             >
               Review Payroll
             </div>
-          </div>
+          </Link>
           <hr
             className={`payrun-progress__line payrun-progress__line--current`}
           />
@@ -62,87 +87,43 @@ export default function PayrunReview() {
         </div>
       </div>
 
-      <div className="pr-summary">
-        <div className="pr-summary__wrapper">
-          <div className="pr-summary__cost">
-            <div className="pr-summary__breakdown">
-              <div className="pr-summary__item pr-summary__tcost">
-                <div className="pr-summary__item-label pr-summary__tcost-label">
-                  Total Payroll Cost
-                </div>
-                <div className="pr-summary__item-amount pr-summary__tcost-amount">
-                  $150,000.00
-                </div>
-              </div>
-              <div className="pr-summary__item">
-                <div className="pr-summary__item-label">Gross Pay</div>
-                <div className="pr-summary__item-amount">$136,500.00</div>
-              </div>
-              <div className="pr-summary__item">
-                <div className="pr-summary__item-label">
-                  Employer Taxes & Contributions
-                </div>
-                <div className="pr-summary__item-amount">$13,500.00</div>
-              </div>
-            </div>
-          </div>
-          <div className="pr-summary__caution">
-            <div className="pr-summary__caution-picture">
-              <img
-                src={caution}
-                alt="Caution gif"
-                className="pr-summary__caution-img"
-              />
-            </div>
-            <div className="pr-summary__caution-text">
-              Exercise caution
-              <span>Important financial information</span>
-            </div>
-          </div>
-          <div className="pr-summary__date">
-            <div className="pr-summary__date-details">
-              <div className="pr-summary__date-period">
-                <Dropdown
-                  className="pr-summary__date-dropdown"
-                  options={currPayPeriod}
-                  defaultLabel={currPayPeriod[0].value}
-                />
-                <div className="pr-summary__date-label">Pay Period</div>
-              </div>
-              <div className="pr-summary__pay-day">
-                <div className="pr-summary__text">25 Jul 2024</div>
-                <div className="pr-summary__date-label">Pay Date</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="pr-details">
         <div className="pr-details__wrapper">
           <div className="pr-details__top">
-            <div className="pr-details__title">Any Payroll Changes?</div>
-            <div className="button-primary pr-details__button">
+            <div className="pr-details__title">
+              Any Payroll Changes?
+              <span className="pr-details__title--caution">
+                <i className="fa-solid fa-circle-info"></i> Scroll to the bottom
+                to proceed
+              </span>
+            </div>
+            <div className="button-secondary pr-details__button">
               Add an Employee
             </div>
           </div>
+
           <div className="pr-details__bottom">
             <div className="pr-details__period"></div>
             <div className="pr-details__table">
               <div className="pr-details__table-header">
                 <div className="pr-details__table-row">
-                  <div className="pr-details__table-cell pr-details__table-name">
+                  <div className="pr-details__table-cell pr-details__table-cell--header pr-details__table-name">
                     Name
                   </div>
-                  <div className="pr-details__table-cell">Gross Pay</div>
-                  <div className="pr-details__table-cell">
+                  <div className="pr-details__table-cell pr-details__table-cell--header">
+                    Gross Pay
+                  </div>
+                  <div className="pr-details__table-cell pr-details__table-cell--header">
                     Employee Taxes <span>& Deductions</span>
                   </div>
-                  <div className="pr-details__table-cell">Net Pay</div>
-                  <div className="pr-details__table-cell">
+                  <div className="pr-details__table-cell pr-details__table-cell--header">
+                    Net Pay
+                  </div>
+                  <div className="pr-details__table-cell pr-details__table-cell--header">
                     Employer Taxes
                     <span>& Contributions</span>
                   </div>
-                  <div className="pr-details__table-cell pr-details__table-actions">
+                  <div className="pr-details__table-cell pr-details__table-cell--header pr-details__table-actions--header">
                     Actions
                   </div>
                 </div>
@@ -208,6 +189,21 @@ export default function PayrunReview() {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="pr-details__nav">
+            <Link
+              to="/payroll"
+              className="button-secondary pr-details__nav-button"
+            >
+              Back
+            </Link>
+            <Link
+              to="/payroll/confirm"
+              className="button-primary pr-details__nav-button"
+            >
+              Next
+            </Link>
           </div>
         </div>
       </div>

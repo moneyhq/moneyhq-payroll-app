@@ -1,26 +1,10 @@
 import "./Payrun.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDate } from "../../utils/formatFunctions";
-import {
-  faCircle,
-  faCircleCheck,
-  faCircleQuestion,
-  faHandPointer,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import PayrunReview from "../../components/PayrunReview/PayrunReview";
-import PayrunConfirm from "../../components/PayrunConfirm/PayrunConfirm";
-import PayrunSuccess from "../../components/PayrunSuccess/PayrunSuccess";
+import { faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 
 export default function Payrun() {
   const date = formatDate(new Date());
-  const [currentStep, setCurrentStep] = useState(1);
-
-  const handleNext = () => {
-    setCurrentStep((prevStep) => prevStep + 1);
-  };
 
   return (
     <section className="payrun">
@@ -49,13 +33,6 @@ export default function Payrun() {
           <h1 className="payroll-header__title--text">Run Payroll</h1>
         </div>
       </div>
-
-      <div className="payrun-content">
-        {currentStep === 1 && <PayrunReview onNext={handleNext} />}
-        {currentStep === 2 && <PayrunConfirm onNext={handleNext} />}
-        {currentStep === 3 && <PayrunSuccess />}
-      </div>
-
     </section>
   );
 }

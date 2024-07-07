@@ -51,7 +51,7 @@ export default function Payroll() {
             <span>Add Employee</span>
           </Link>
           <Link
-            to="/"
+            to="/payroll/review"
             className="button-primary payroll-header__btn payroll-header__btn--primary"
           >
             <FontAwesomeIcon
@@ -81,7 +81,7 @@ export default function Payroll() {
               Add Employee
             </Link>
             <Link
-              to="/payroll/run"
+              to="/payroll/review"
               className="button-primary payroll-summary__button payroll-summary__button--review"
             >
               Review Payroll
@@ -214,7 +214,7 @@ export default function Payroll() {
                 </div>
                 <div className="payroll-history__body-cell payroll-history__body-cell--1 payroll-history__body-actions payroll-history__body-actions--1">
                   <Link
-                    to="/payroll/run"
+                    to="/payroll/review"
                     className="payroll-history__body-review"
                   >
                     <i className="fa-solid fa-magnifying-glass"></i>

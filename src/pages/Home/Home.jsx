@@ -107,15 +107,15 @@ export default function Home() {
                   <span className="card-top__left-title">
                     Upcoming Sal Date
                   </span>
-                  <h2 className="card-top__left-data">
+                  <div className="card-top__left-data">
                     25 Jul <span className="card-top__left-data2">2024</span>
-                  </h2>
+                  </div>
                 </div>
                 <div className="card-top__right">
                   <FontAwesomeIcon icon={faCalendarDays} />
                 </div>
               </div>
-              <Link to="/employees" className="card-bottom">
+              <Link to="/payroll/review" className="card-bottom">
                 Run Payroll
                 <FontAwesomeIcon
                   icon={faArrowRight}
@@ -127,7 +127,7 @@ export default function Home() {
               <div className="card-top">
                 <div className="card-top__left">
                   <span className="card-top__left-title">Employees</span>
-                  <h2 className="card-top__left-data">27</h2>
+                  <div className="card-top__left-data">27</div>
                 </div>
                 <div className="card-top__right">
                   <FontAwesomeIcon icon={faUsers} />
