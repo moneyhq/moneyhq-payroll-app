@@ -103,6 +103,22 @@ export default function PayrunConfirm() {
         </div>
       </div>
 
+      <div className="pc-details__top">
+        <div className="pr-details__title">
+          Does everything look right?
+          <span className="pr-details__title--caution">
+            <i className="fa-solid fa-circle-info"></i> Scroll to the bottom to
+            proceed
+          </span>
+        </div>
+        <Link
+          to="/payroll/review"
+          className="button-secondary pr-details__button"
+        >
+          No
+        </Link>
+      </div>
+
       <div className="pc-summary">
         <div className="pc-summary__container">
           <div className="pc-summary__wrapper">
