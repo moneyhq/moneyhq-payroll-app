@@ -99,14 +99,24 @@ table {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba($color: black, $alpha: 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  z-index: 1000;
 
-.modal-content {
-  background: white;
-  padding: 1.25rem;
-  border-radius: 0.5rem;
+  &-content {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    position: relative;
+  }
+
+  &-close {
+    position: absolute;
+    color: $danger;
+    font-size: 1.5rem;
+    top: 3%;
+    left: 90%;
+  }
 }

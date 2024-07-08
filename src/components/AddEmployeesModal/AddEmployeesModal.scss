@@ -1,0 +1,91 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.add-employees-modal {
+  padding: 1rem;
+  max-width: 30rem;
+  height: 30rem;
+  overflow: hidden;
+
+  &__title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-bottom: 1rem;
+  }
+
+  &__form {
+    &-box {
+      width: 100%;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    &-wrapper {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    color: $text-tertiary;
+    font-size: 0.9rem;
+
+    &-invite {
+      font-weight: 400;
+      color: $text-secondary;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    &-invite {
+      flex-direction: row;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    &-email {
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+      animation: slide-email-down 3s linear both;
+
+      &--show {
+        height: 100px;
+        opacity: 1;
+        display: flex;
+        flex-direction: column;
+        animation: slide-email-down 3s linear both;
+      }
+    }
+  }
+
+  &__required {
+    color: $danger;
+  }
+}
+
+@keyframes slide-email-down {
+  0% {
+    visibility: hidden;
+    height: 0;
+  }
+
+  //   95% {
+  //     visibility: visible;
+  //     height: $slide-content-height;
+  //   }
+
+  100% {
+    visibility: visible;
+    height: auto;
+  }
+}

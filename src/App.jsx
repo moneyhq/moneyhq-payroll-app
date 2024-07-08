@@ -1,5 +1,5 @@
 import "./styles/App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Payroll from "./pages/Payroll/Payroll";
 import Employees from "./pages/Employees/Employees";
@@ -12,7 +12,7 @@ import PayrunConfirm from "./components/PayrunConfirm/PayrunConfirm";
 import PayrunSuccess from "./components/PayrunSuccess/PayrunSuccess";
 import { ModalProvider } from "./contexts/ModalContext";
 import Modal from "./components/Modal/Modal";
-import AddEmployees from "./components/AddEmployees/AddEmployees";
+import AddEmployeesModal from "./components/AddEmployeesModal/AddEmployeesModal";
 // import useLocalStorage from "use-local-storage";
 
 export default function App() {
@@ -53,7 +53,7 @@ export default function App() {
 
       {/* Modal components */}
       <Modal modalId="addEmployeesModal">
-        <AddEmployees />
+        <AddEmployeesModal />
       </Modal>
     </ModalProvider>
   );
