@@ -18,7 +18,7 @@ export default function AddEmployeesModal() {
     return (
       <div className="add-employees-modal__form-box">
         <div className="add-employees-modal__form-container add-employees-modal__form-container--top">
-          <div className="add-employees-modal__form-wrapper">
+          <div className="add-employees-modal__form-wrapper add-employee-modal__form-wrapper--name">
             <div className="add-employees-modal__item add-employees-modal__item--firstname">
               <label
                 className="add-employees-modal__label"
@@ -91,50 +91,88 @@ export default function AddEmployeesModal() {
         </div>
 
         <div className="add-employees-modal__form-container add-employees-modal__form-container--bottom">
-          <div className="add-employees-modal__item add-employees-modal__item--dob">
-            <label
-              className="add-employees-modal__label"
-              htmlFor="employeeDateOfBirth"
-            >
-              Date of Birth
-            </label>
-            <input
-              className="add-employees-modal__input
-          "
-              type="date"
-              name="employeeDateOfBirth"
-              id="employeeDateOfBirth"
-            />
-          </div>
           <div className="add-employees-modal__item add-employees-modal__item--address">
             <label
               className="add-employees-modal__label"
               htmlFor="employeeAddress"
             >
               Address
+              <span
+                className={
+                  isInviteChecked
+                    ? "add-employees-modal__optional"
+                    : "add-employees-modal__required"
+                }
+              >
+                {isInviteChecked ? " (Optional)" : " *"}
+              </span>
             </label>
             <input
               className="add-employees-modal__input
-          "
+            "
               type="text"
               name="employeeAddress"
               id="employeeAddress"
             />
           </div>
-          <div className="add-employees-modal__item add-employees-modal__item--state">
-            <label
-              className="add-employees-modal__label"
-              htmlFor="employeeState"
-            >
-              State
-            </label>
-            <Dropdown
-              options={[
-                { value: "Lagos", label: "Lagos" },
-                { value: "Abuja", label: "Abuja" },
-              ]}
-              defaultLabel={"State"}
-            />
+          <div className="add-employees-modal__form-wrapper add-employee-modal__form-wrapper--address">
+            <div className="add-employees-modal__item add-employees-modal__item--state">
+              <div
+                className="add-employees-modal__label"
+                htmlFor="employeeState"
+              >
+                State
+                <span
+                  className={
+                    isInviteChecked
+                      ? "add-employees-modal__optional"
+                      : "add-employees-modal__required"
+                  }
+                >
+                  {isInviteChecked ? " (Optional)" : " *"}
+                </span>
+              </div>
+              <Dropdown
+                options={[
+                  { value: "Lagos", label: "Lagos" },
+                  { value: "Abuja", label: "Abuja" },
+                ]}
+                defaultLabel={"Lagos"}
+              />
+            </div>
+            <div className="add-employees-modal__item add-employees-modal__item--dob">
+              <label
+                className="add-employees-modal__label"
+                htmlFor="employeeDateOfBirth"
+              >
+                Date of Birth
+                <span
+                  className={
+                    isInviteChecked
+                      ? "add-employees-modal__optional"
+                      : "add-employees-modal__required"
+                  }
+                >
+                  {isInviteChecked ? " (Optional)" : " *"}
+                </span>
+              </label>
+              <input
+                className="add-employees-modal__input
+          "
+                type="date"
+                name="employeeDateOfBirth"
+                id="employeeDateOfBirth"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="add-employees-modal__form-button">
+          <div className="button-secondary add-employees-modal__form-back">
+            Back
+          </div>
+          <div className="button-primary add-employees-modal__form-next">
+            Next
           </div>
         </div>
       </div>
@@ -144,8 +182,8 @@ export default function AddEmployeesModal() {
   return (
     <div className="add-employees-modal">
       <div className="add-employees-modal__title">Add Employee</div>
-      <form>{<EmployeeBasicInfo />}</form>
-      <button onClick={() => closeModal("addEmployeesModal")}>Close</button>
+      <form className="add-employees-modal__form">{<EmployeeBasicInfo />}</form>
+      {/* <button onClick={() => closeModal("addEmployeesModal")}>Close</button> */}
     </div>
   );
 }

@@ -52,8 +52,6 @@ export default function Employees() {
     return <p>Error fetching data: {error.message}</p>;
   }
 
-  console.log(employees);
-
   const departments = [
     { value: "", label: "Departments" },
     { value: "hr", label: "HR" },
