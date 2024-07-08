@@ -1,27 +1,23 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useCallback } from "react";
 
 const ModalContext = createContext();
 
-export const useModal = () => useContext(ModalContext);
-
 export const ModalProvider = ({ children }) => {
-  const [isAddEmployeesOpen, setIsAddEmployeesOpen] = useState(false);
+  const [modals, setModals] = useState([]);
 
-  const openAddEmployees = () => {
-    setIsAddEmployeesOpen(true);
-  };
+  const openModal = useCallback((modalId) => {
+    setModals((prevModals) => [...prevModals, modalId]);
+  }, []);
 
-  const closeAddEmployees = () => {
-    setIsAddEmployeesOpen(false);
-  };
+  const closeModal = useCallback((modalId) => {
+    setModals((prevModals) => prevModals.filter((id) => id !== modalId));
+  }, []);
 
   return (
-    <ModalContext.Provider
-      value={{ isAddEmployeesOpen, openAddEmployees, closeAddEmployees }}
-    >
+    <ModalContext.Provider value={{ modals, openModal, closeModal }}>
       {children}
     </ModalContext.Provider>
   );
 };
 
-export default ModalProvider;
+export const useModal = () => useContext(ModalContext);

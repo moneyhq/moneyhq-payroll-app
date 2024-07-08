@@ -6,7 +6,6 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArchive,
-  faCaretDown,
   faCaretLeft,
   faCaretRight,
   faPencil,

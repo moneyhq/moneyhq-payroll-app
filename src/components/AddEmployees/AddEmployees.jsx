@@ -1,32 +1,25 @@
 import React from "react";
-import Modal from "react-modal";
 import { useModal } from "../../contexts/ModalContext";
-import "./AddEmployees.scss";
 
 export default function AddEmployees() {
-  const { openAddEmployees, closeAddEmployees, isAddEmployeesOpen } =
-    useModal();
-  console.log("AddEmployees rendered:", isAddEmployeesOpen);
+  const { closeModal } = useModal();
 
   return (
-    <Modal
-      isOpen={isAddEmployeesOpen}
-      onRequestClose={closeAddEmployees}
-      contentLabel="Add Employees"
-      overlayClassName="modal-overlay"
-      className="modal-content"
-    >
-      <h2>Add Employees</h2>
+    <div className="modal-content">
+      <h1>Add Employee</h1>
       <form>
-        <label>
-          Name: <input type="text" name="name" />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={closeAddEmployees}>
-          Close
-        </button>
+        {/* Your form fields go here */}
+        <div>
+          <label>Name:</label>
+          <input type="text" name="name" />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" name="email" />
+        </div>
+        <button type="submit">Add Employee</button>
       </form>
-    </Modal>
+      <button onClick={() => closeModal("addEmployeeModal")}>Close</button>
+    </div>
   );
 }

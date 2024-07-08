@@ -10,12 +10,10 @@ import Payrun from "./pages/Payrun/Payrun";
 import PayrunReview from "./components/PayrunReview/PayrunReview";
 import PayrunConfirm from "./components/PayrunConfirm/PayrunConfirm";
 import PayrunSuccess from "./components/PayrunSuccess/PayrunSuccess";
-import AddEmployees from "./components/AddEmployees/AddEmployees";
 import { ModalProvider } from "./contexts/ModalContext";
-import Modal from "react-modal";
+import Modal from "./components/Modal/Modal";
+import AddEmployees from "./components/AddEmployees/AddEmployees";
 // import useLocalStorage from "use-local-storage";
-
-Modal.setAppElement("#root");
 
 export default function App() {
   // const [theme, setTheme] = useLocalStorage("theme", "light");
@@ -31,7 +29,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Body body={<Home />} />} />
           <Route path="/payroll" element={<Body body={<Payroll />} />} />
-          {/* <Route path="/payroll/run" element={<Body body={<Payrun />} />} /> */}
+          <Route path="/payroll/run" element={<Body body={<Payrun />} />} />
           <Route
             path="/payroll/review"
             element={<Body body={<PayrunReview />} />}
@@ -50,12 +48,16 @@ export default function App() {
             element={<Body body={<Employees />} />}
           />
           <Route path="/reports" element={<Body body={<Reports />} />} />
-          <Route
-            path="/employees/add"
-            element={<Body body={<AddEmployees />} />}
-          />
         </Routes>
       </BrowserRouter>
+
+      {/* Modal components */}
+      <Modal modalId="trialModal">
+        <h1>Example Modal Content</h1>
+      </Modal>
+      <Modal modalId="addEmployeesModal">
+        <AddEmployees />
+      </Modal>
     </ModalProvider>
   );
 }

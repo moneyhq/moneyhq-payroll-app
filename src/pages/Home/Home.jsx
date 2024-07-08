@@ -21,11 +21,10 @@ import graph from "../../assets/images/graph-img.png";
 import zenith from "../../assets/images/zenith-bank.svg";
 import animation from "../../assets/images/anima.gif";
 import { useModal } from "../../contexts/ModalContext";
-import Modal from "react-modal";
 
 export default function Home() {
   const date = formatDate(new Date());
-  const { openAddEmployees, isAddEmployeesOpen } = useModal();
+  const { openModal } = useModal();
 
   return (
     <section className="home">
@@ -56,7 +55,7 @@ export default function Home() {
           </div>
           <div className="home-header__actions">
             <div
-              onClick={openAddEmployees}
+              onClick={() => openModal("addEmployeesModal")}
               className="button-secondary home-header__btn home-header__btn--secondary"
             >
               <FontAwesomeIcon icon={faPlus} className="home-header__icon" />
