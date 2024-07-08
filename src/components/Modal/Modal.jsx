@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { useModal } from "../../contexts/ModalContext";
 
-function Modal({ modalId, children }) {
+export default function Modal({ modalId, children }) {
   const { modals, closeModal } = useModal();
 
   if (!modals.includes(modalId)) {
     return null;
   }
-
-
 
   return ReactDOM.createPortal(
     <div className="modal">
@@ -19,5 +17,3 @@ function Modal({ modalId, children }) {
     document.getElementById("portal-root")
   );
 }
-
-export default Modal;

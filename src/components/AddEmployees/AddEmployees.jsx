@@ -8,7 +8,6 @@ export default function AddEmployees() {
     <div className="modal-content">
       <h1>Add Employee</h1>
       <form>
-        {/* Your form fields go here */}
         <div>
           <label>Name:</label>
           <input type="text" name="name" />
@@ -19,7 +18,7 @@ export default function AddEmployees() {
         </div>
         <button type="submit">Add Employee</button>
       </form>
-      <button onClick={() => closeModal("addEmployeeModal")}>Close</button>
+      <button onClick={() => closeModal("addEmployeesModal")}>Close</button>
     </div>
   );
 }

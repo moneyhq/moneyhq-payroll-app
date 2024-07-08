@@ -52,9 +52,6 @@ export default function App() {
       </BrowserRouter>
 
       {/* Modal components */}
-      <Modal modalId="trialModal">
-        <h1>Example Modal Content</h1>
-      </Modal>
       <Modal modalId="addEmployeesModal">
         <AddEmployees />
       </Modal>
