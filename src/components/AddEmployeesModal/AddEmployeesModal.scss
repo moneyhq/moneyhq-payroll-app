@@ -3,8 +3,9 @@
 
 .add-employees-modal {
   padding: 1rem;
+  min-width: 27.5rem;
   max-width: 30rem;
-  height: 30rem;
+  min-height: 30rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -72,7 +73,7 @@
     &-email {
       max-height: 0;
       visibility: hidden;
-      animation: slide-email-up 0.4s ease-out both;
+    //   animation: slide-email-up 0.4s ease-out both;
 
       &--show {
         animation: slide-email-down 0.8s ease-in both;
