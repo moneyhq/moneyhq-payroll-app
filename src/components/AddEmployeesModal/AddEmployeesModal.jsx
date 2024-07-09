@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useModal } from "../../contexts/ModalContext";
 import { useForm, Controller } from "react-hook-form";
 import Dropdown from "../Dropdown/Dropdown";
+import axios from "axios";
 
 export default function AddEmployeesModal() {
   const { closeModal } = useModal();
@@ -12,8 +13,13 @@ export default function AddEmployeesModal() {
     control,
     watch,
     trigger,
+    setValue,
     formState: { errors },
   } = useForm();
+
+  const selectedState = watch("employeeState");
+  const selectedPayFrequency = watch("employeePayFrequency");
+  const selectedPfa = watch("employeePensionAdmin");
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -34,8 +40,21 @@ export default function AddEmployeesModal() {
     }
   };
 
-  const handleFormSubmit = (data) => {
+  const handleBack = () => {
+    setCurrentPage(1);
+  };
+  const handleFormSubmit = async (data) => {
     console.log(data);
+
+    // try {
+    //   await axios.post(
+    //     `${import.meta.env.VITE_BACKEND_URL}/api/employees`,
+    //     data
+    //   );
+    //   // setCurrentPage(3)
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (
@@ -219,10 +238,11 @@ export default function AddEmployeesModal() {
                           { value: "Lagos", label: "Lagos" },
                           { value: "Abuja", label: "Abuja" },
                         ]}
-                        defaultLabel={"Select State"}
-                        onOptionSelected={(selectedOption) =>
-                          field.onChange(selectedOption.value)
-                        }
+                        defaultLabel={selectedState || "Select State"}
+                        onOptionSelected={(selectedOption) => {
+                          field.onChange(selectedOption.value);
+                          setValue("employeeState", selectedOption.value);
+                        }}
                         value={field.value}
                       />
                     )}
@@ -233,6 +253,13 @@ export default function AddEmployeesModal() {
                     </div>
                   )}
                 </div>
+                {/* 
+                TODO
+                <select {...register("gender")}>
+                  <option value="female">female</option>
+                  <option value="male">male</option>
+                  <option value="other">other</option>
+                </select> */}
                 <div className="add-employees-modal__item add-employees-modal__item--dob">
                   <label
                     className="add-employees-modal__label"
@@ -344,10 +371,16 @@ export default function AddEmployeesModal() {
                     render={({ field }) => (
                       <Dropdown
                         options={[{ value: "monthly", label: "Monthly" }]}
-                        defaultLabel={"Select Frequency"}
-                        onOptionSelected={(selectedOption) =>
-                          field.onChange(selectedOption.value)
+                        defaultLabel={
+                          selectedPayFrequency || "Select Frequency"
                         }
+                        onOptionSelected={(selectedOption) => {
+                          field.onChange(selectedOption.value);
+                          setValue(
+                            "employeePayFrequency",
+                            selectedOption.value
+                          );
+                        }}
                         value={field.value}
                       />
                     )}
@@ -416,10 +449,11 @@ export default function AddEmployeesModal() {
                           label: "Leadway Pensure",
                         },
                       ]}
-                      defaultLabel={"Select PFA"}
-                      onOptionSelected={(selectedOption) =>
-                        field.onChange(selectedOption.value)
-                      }
+                      defaultLabel={selectedPfa || "Select PFA"}
+                      onOptionSelected={(selectedOption) => {
+                        field.onChange(selectedOption.value);
+                        setValue("employeePensionAdmin", selectedOption.value);
+                      }}
                       value={field.value}
                     />
                   )}
@@ -456,7 +490,7 @@ export default function AddEmployeesModal() {
             <div className="add-employees-modal__form-button">
               <div
                 className="button-secondary add-employees-modal__form-back"
-                onClick={() => setCurrentPage(1)}
+                onClick={handleBack}
               >
                 Back
               </div>
