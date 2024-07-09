@@ -63,6 +63,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    position: relative;
 
     &-invite {
       flex-direction: row;
@@ -73,7 +74,7 @@
     &-email {
       max-height: 0;
       visibility: hidden;
-    //   animation: slide-email-up 0.4s ease-out both;
+      animation: slide-email-up 0.4s ease-out both;
 
       &--show {
         animation: slide-email-down 0.8s ease-in both;
@@ -88,6 +89,31 @@
   &__optional {
     font-size: 0.75rem;
     font-weight: 400;
+  }
+
+  &__input {
+    &--error {
+    }
+  }
+
+  &__error {
+    position: absolute;
+    color: $danger;
+    font-size: 0.75rem;
+    right: 5%;
+    top: 57%;
+
+    &--email {
+      top: 45%;
+    }
+
+    &--state{
+      right: 12%;
+    }
+
+    &--dob{
+      right: 15%;
+    }
   }
 }
 

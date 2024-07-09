@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { formatDate, formatNumber } from "../../utils/formatFunctions";
 import Dropdown from "../../components/Dropdown/Dropdown";
+import { useModal } from "../../contexts/ModalContext";
 
 export default function Employees() {
   const [employees, setEmployees] = useState(null);
@@ -21,6 +22,7 @@ export default function Employees() {
   const [totalPages, setTotalPages] = useState(1);
   const [selectedOption, setSelectedOption] = useState(null);
   const [limit, setLimit] = useState(10);
+  const { openModal } = useModal();
 
   const navigate = useNavigate();
 
@@ -108,12 +110,12 @@ export default function Employees() {
           >
             Upload from CSV
           </Link>
-          <Link
-            to="/"
+          <div
+            onClick={() => openModal("addEmployeesModal")}
             className="button-primary employees__btn employees__btn--primary"
           >
             Add Employee
-          </Link>
+          </div>
         </div>
       </div>
 
