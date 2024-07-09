@@ -79,7 +79,11 @@ export default function AddEmployeesModal() {
                     <span className="add-employees-modal__required">*</span>
                   </label>
                   <input
-                    className="add-employees-modal__input"
+                    className={`add-employees-modal__input ${
+                      errors.employeeFirstName
+                        ? "add-employees-modal__input--error"
+                        : ""
+                    }`}
                     type="text"
                     {...register("employeeFirstName", {
                       required: "First name too short",
@@ -106,7 +110,11 @@ export default function AddEmployeesModal() {
                     <span className="add-employees-modal__required">*</span>
                   </label>
                   <input
-                    className="add-employees-modal__input"
+                    className={`add-employees-modal__input ${
+                      errors.employeeLastName
+                        ? "add-employees-modal__input--error"
+                        : ""
+                    }`}
                     type="text"
                     {...register("employeeLastName", {
                       required: "Last name required",
@@ -154,12 +162,20 @@ export default function AddEmployeesModal() {
                   Email
                 </label>
                 <input
-                  className="add-employees-modal__input"
+                  className={`add-employees-modal__input ${
+                    errors.employeeEmail
+                      ? "add-employees-modal__input--error"
+                      : ""
+                  }`}
                   type="email"
                   {...register("employeeEmail", {
                     required: watch("inviteEmployee")
                       ? "Email is required"
                       : false,
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Invalid email address",
+                    },
                   })}
                   id="employeeEmail"
                   onBlur={() => trigger("employeeEmail")}
@@ -190,7 +206,11 @@ export default function AddEmployeesModal() {
                   </span>
                 </label>
                 <input
-                  className="add-employees-modal__input"
+                  className={`add-employees-modal__input ${
+                    errors.employeeAddress
+                      ? "add-employees-modal__input--error"
+                      : ""
+                  }`}
                   type="text"
                   {...register("employeeAddress", {
                     required: watch("inviteEmployee")
@@ -279,10 +299,19 @@ export default function AddEmployeesModal() {
                   <input
                     className="add-employees-modal__input"
                     type="date"
+                    max={new Date().toISOString().split("T")[0]}
                     {...register("employeeDateOfBirth", {
                       required: watch("inviteEmployee")
                         ? false
                         : "DoB required",
+                      validate: (value) => {
+                        if (!watch("inviteEmployee") && value) {
+                          const dob = new Date(value);
+                          const today = new Date();
+                          return dob < today || "DoB must be in the past";
+                        }
+                        return true;
+                      },
                     })}
                     id="employeeDateOfBirth"
                     onBlur={() => trigger("employeeDateOfBirth")}
@@ -318,7 +347,11 @@ export default function AddEmployeesModal() {
                   <span className="add-employees-modal__required">*</span>
                 </label>
                 <input
-                  className="add-employees-modal__input"
+                  className={`add-employees-modal__input ${
+                    errors.employeeJoinDate
+                      ? "add-employees-modal__input--error"
+                      : ""
+                  }`}
                   type="date"
                   {...register("employeeJoinDate", {
                     required: "Join date required",
@@ -327,7 +360,7 @@ export default function AddEmployeesModal() {
                   onBlur={() => trigger("employeeJoinDate")}
                 />
                 {errors.employeeJoinDate && (
-                  <div className="add-employees-modal__error">
+                  <div className="add-employees-modal__error add-employees-modal__error--joindate">
                     {errors.employeeJoinDate.message}
                   </div>
                 )}
@@ -342,11 +375,21 @@ export default function AddEmployeesModal() {
                     <span className="add-employees-modal__required">*</span>
                   </label>
                   <input
-                    className="add-employees-modal__input"
+                    className={`add-employees-modal__input ${
+                      errors.employeeSalary
+                        ? "add-employees-modal__input--error"
+                        : ""
+                    }`}
                     type="number"
+                    step="0.01"
                     {...register("employeeSalary", {
                       required: "Salary is required",
-                      min: { value: 50, message: "Minimum salary is 50" },
+                      min: {
+                        value: 50,
+                        message: "Salary cannot be negative",
+                        validate: (value) =>
+                          value > 0 || "Salary must be greater than 0",
+                      },
                     })}
                     id="employeeSalary"
                     placeholder="1000"
@@ -416,7 +459,7 @@ export default function AddEmployeesModal() {
               <div className="add-employees-modal__item add-employees-modal__item--pfa">
                 <div
                   className="add-employees-modal__label"
-                  htmlFor="employeePfa"
+                  htmlFor="employeePensionAdmin"
                 >
                   Pension Fund Administrator
                   <span

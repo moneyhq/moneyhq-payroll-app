@@ -3,7 +3,7 @@ import "./Dropdown.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
-export default function Dropdown({ options, defaultLabel, onOptionSelected }) {
+export default function Dropdown({ options, defaultLabel, onOptionSelected}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const [selectedOption, setSelectedOption] = useState({
@@ -39,7 +39,7 @@ export default function Dropdown({ options, defaultLabel, onOptionSelected }) {
 
   return (
     <div
-      className={`dropdown-wrapper ${isOpen ? "dropdown-wrapper__open" : ""}`}
+      className={`pfa dropdown-wrapper ${isOpen ? "dropdown-wrapper__open" : ""}`}
       ref={dropdownRef}
     >
       <div

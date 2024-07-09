@@ -93,6 +93,7 @@
 
   &__input {
     &--error {
+      border: 0.5px solid $danger;
     }
   }
 
@@ -107,12 +108,16 @@
       top: 45%;
     }
 
-    &--state{
+    &--state {
       right: 12%;
     }
 
-    &--dob{
+    &--dob {
       right: 15%;
+    }
+
+    &--joindate {
+      right: 2rem;
     }
   }
 }
@@ -155,4 +160,8 @@
     visibility: hidden;
     padding: 0;
   }
+}
+
+.pfa {
+  max-width: none;
 }
