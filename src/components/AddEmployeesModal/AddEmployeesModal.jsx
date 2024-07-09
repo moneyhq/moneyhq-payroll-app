@@ -44,17 +44,38 @@ export default function AddEmployeesModal() {
     setCurrentPage(1);
   };
   const handleFormSubmit = async (data) => {
-    console.log(data);
+    const backendData = {
+      first_name: data.employeeFirstName,
+      last_name: data.employeeLastName,
+      date_of_birth: data.employeeDateOfBirth,
+      company_email: data.employeeEmail,
+      personal_email: "",
+      phone_number: data.employeePhone || "",
+      address: data.employeeAddress,
+      join_date: data.employeeJoinDate,
+      exit_date: "",
+      status: "active",
+      gross_monthly_salary: parseFloat(data.employeeSalary), //Check this later
+      bank_name: "",
+      bank_account_number: "",
+      bank_sort_code: "",
+      BVN: "",
+      tax_id: data.employeeTaxId,
+      pension_id: data.employeePensionId,
+      current_state_id: 1, // Convert to ID later (data.employeeState)
+      current_pfa: 1, // Map to backend later (data.employeePensionAdmin)
+    };
+    console.log(backendData);
 
-    // try {
-    //   await axios.post(
-    //     `${import.meta.env.VITE_BACKEND_URL}/api/employees`,
-    //     data
-    //   );
-    //   // setCurrentPage(3)
-    // } catch (error) {
-    //   console.error(error);
-    // }
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/employees`,
+        backendData
+      );
+      // setCurrentPage(3)
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
