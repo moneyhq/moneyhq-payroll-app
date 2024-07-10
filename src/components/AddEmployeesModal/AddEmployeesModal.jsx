@@ -75,8 +75,7 @@ export default function AddEmployeesModal() {
       current_state_id: 1, // Convert to ID later (data.employeeState)
       current_pfa: 1, // Map to backend later (data.employeePensionAdmin)
     };
-    console.log(backendData);
-
+    
     try {
       await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/employees`,
