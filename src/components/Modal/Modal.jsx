@@ -12,7 +12,6 @@ export default function Modal({ modalId, children }) {
   const handleOutsideClick = (event) => {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       closeModal(modalId);
-      console.log(modalRef);
     }
   };
 

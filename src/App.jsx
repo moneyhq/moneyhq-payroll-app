@@ -13,6 +13,7 @@ import PayrunSuccess from "./components/PayrunSuccess/PayrunSuccess";
 import { ModalProvider } from "./contexts/ModalContext";
 import Modal from "./components/Modal/Modal";
 import AddEmployeesModal from "./components/AddEmployeesModal/AddEmployeesModal";
+import SingleEmployee from "./pages/SingleEmployee/SingleEmployee";
 // import useLocalStorage from "use-local-storage";
 
 export default function App() {
@@ -45,7 +46,7 @@ export default function App() {
           <Route path="/employees" element={<Body body={<Employees />} />} />
           <Route
             path="/employees/:id"
-            element={<Body body={<Employees />} />}
+            element={<Body body={<SingleEmployee />} />}
           />
           <Route path="/reports" element={<Body body={<Reports />} />} />
         </Routes>

@@ -1,0 +1,92 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.single-employee {
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+
+    @include tablet {
+      justify-content: space-between;
+      padding: 0rem 2rem;
+    }
+  }
+
+  &-breadcrumb {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      font-size: 0.9rem;
+      align-items: center;
+      color: $text-tertiary;
+      gap: 0.5rem;
+    }
+
+    &__text {
+      padding-top: 0.5rem;
+      padding-bottom: 0.25rem;
+      cursor: pointer;
+
+      &--employees {
+        &:hover {
+          color: $link-default;
+        }
+      }
+    }
+  }
+
+  &-name {
+    display: none;
+
+    @include tablet {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $text-secondary;
+    }
+  }
+
+  &-edit {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+  }
+
+  &-profile {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 0.5px solid $border-default;
+
+    &__avi {
+      width: 5rem;
+      height: 5rem;
+      border-radius: 100%;
+      overflow: hidden;
+    }
+
+    &__img {
+      width: 100%;
+    }
+
+    &__data {
+      padding: 0.5rem 1rem;
+    }
+
+    &__name {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    &__role {
+      color: $text-tertiary;
+    }
+  }
+}
