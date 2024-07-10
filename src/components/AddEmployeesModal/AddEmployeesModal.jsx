@@ -26,6 +26,7 @@ export default function AddEmployeesModal() {
   const selectedPfa = watch("employeePensionAdmin");
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [axiosError, setAxiosError] = useState(false);
 
   const handleNext = async () => {
     if (currentPage === 1) {
@@ -39,6 +40,7 @@ export default function AddEmployeesModal() {
         "employeeDateOfBirth",
       ]);
       if (isValid) {
+        setAxiosError(false);
         setCurrentPage(2);
       }
     }
@@ -75,7 +77,7 @@ export default function AddEmployeesModal() {
       current_state_id: 1, // Convert to ID later (data.employeeState)
       current_pfa: 1, // Map to backend later (data.employeePensionAdmin)
     };
-    
+
     try {
       await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/employees`,
@@ -84,6 +86,9 @@ export default function AddEmployeesModal() {
       setCurrentPage(3);
     } catch (error) {
       console.error(error);
+      const { message, response } = error;
+      console.log(response.data.error);
+      setAxiosError(response.data.error);
     }
   };
 
@@ -568,6 +573,11 @@ export default function AddEmployeesModal() {
               </div>
 
               <div className="add-employees-modal__form-button">
+                {axiosError && (
+                  <div className="add-employees-modal__api-error">
+                    {`${axiosError}!`}
+                  </div>
+                )}
                 <div
                   className="button-secondary add-employees-modal__form-back"
                   onClick={handleBack}

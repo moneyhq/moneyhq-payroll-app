@@ -44,6 +44,7 @@
       justify-content: flex-end;
       gap: 0.5rem;
       padding-top: 1.5rem;
+      align-items: center;
     }
   }
 
@@ -154,6 +155,10 @@
     &-button {
       text-align: center;
     }
+  }
+
+  &__api-error{
+    color: $danger;
   }
 }
 
