@@ -120,6 +120,41 @@
       right: 2rem;
     }
   }
+
+  &__success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    &-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 1rem 0;
+    }
+
+    &-icon {
+      color: $success;
+      font-size: 6.5rem;
+      animation: successAnimation 1s ease-in-out forwards;
+    }
+
+    &-bottom {
+      padding: 1rem 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+    &-button {
+      text-align: center;
+    }
+  }
 }
 
 @keyframes slide-email-down {

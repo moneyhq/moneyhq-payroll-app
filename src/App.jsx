@@ -1,5 +1,5 @@
 import "./styles/App.scss";
-import { BrowserRouter, Route, Routes, } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Payroll from "./pages/Payroll/Payroll";
 import Employees from "./pages/Employees/Employees";
@@ -24,8 +24,8 @@ export default function App() {
   // };
 
   return (
-    <ModalProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ModalProvider>
         <Routes>
           <Route path="/" element={<Body body={<Home />} />} />
           <Route path="/payroll" element={<Body body={<Payroll />} />} />
@@ -49,12 +49,12 @@ export default function App() {
           />
           <Route path="/reports" element={<Body body={<Reports />} />} />
         </Routes>
-      </BrowserRouter>
 
-      {/* Modal components */}
-      <Modal modalId="addEmployeesModal">
-        <AddEmployeesModal />
-      </Modal>
-    </ModalProvider>
+        {/* Modal components */}
+        <Modal modalId="addEmployeesModal">
+          <AddEmployeesModal />
+        </Modal>
+      </ModalProvider>
+    </BrowserRouter>
   );
 }
