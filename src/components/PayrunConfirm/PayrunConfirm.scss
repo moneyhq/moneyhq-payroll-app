@@ -1,0 +1,174 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.pc {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  &-summary {
+    padding: 1rem;
+
+    @include desktop {
+      padding: 1rem 2rem;
+    }
+
+    &__container {
+      border: 1px solid $border-default;
+      border-radius: 0.5rem;
+    }
+
+    &__wrapper {
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: center;
+
+      &--base {
+        display: none;
+
+        @include desktop {
+          display: flex;
+          opacity: 0.6;
+        }
+      }
+    }
+
+    &__title {
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+    }
+
+    &__text {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    &__breakdown {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $border-default;
+      border-radius: 0.25rem;
+    }
+
+    &__item {
+      display: grid;
+      grid-template-columns: 1fr 0.65fr;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      border-top: 1px solid $border-default;
+
+      &:first-child {
+        padding: 0.5rem 1rem;
+        background-color: $bg-container1;
+        font-weight: 600;
+      }
+
+      &-label {
+        font-size: 0.85rem;
+      }
+
+      &-amount {
+        font-weight: 600;
+        justify-self: end;
+      }
+    }
+
+    &__tcost {
+      &-amount {
+        font-size: 1.25rem;
+      }
+    }
+
+    &__date {
+      &-details {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      &-period {
+        min-width: 10.5rem;
+
+        @include desktop {
+          min-width: 15rem;
+        }
+      }
+
+      &-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: $text-tertiary;
+      }
+    }
+
+    &__caution {
+      display: none;
+
+      @include desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      &-picture {
+        width: 50px;
+      }
+
+      &-img {
+        width: 100%;
+      }
+
+      &-text {
+        font-size: 0.75rem;
+        text-align: center;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+
+    &__divider {
+      display: none;
+
+      @include desktop {
+        display: block;
+        border: 0.25px solid $border-default;
+        opacity: 0.3;
+      }
+    }
+
+    &__base {
+      &-value {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: $text-secondary;
+      }
+
+      &-label {
+        color: $text-tertiary;
+      }
+    }
+  }
+
+  &-details {
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 2rem;
+    }
+  }
+
+  &-nav {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    justify-content: end;
+  }
+}

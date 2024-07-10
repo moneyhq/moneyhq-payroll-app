@@ -1,0 +1,202 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+
+.add-employees-modal {
+  padding: 1rem;
+  min-width: 27.5rem;
+  max-width: 30rem;
+  min-height: 30rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding-bottom: 1rem;
+  }
+
+  &__form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-box {
+      width: 100%;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    &-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1rem;
+      align-items: center;
+    }
+
+    &-button {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      padding-top: 1.5rem;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    color: $text-tertiary;
+    font-size: 0.9rem;
+    padding-bottom: 0.25rem;
+
+    &-invite {
+      font-weight: 400;
+      color: $text-secondary;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+
+    &-invite {
+      flex-direction: row;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    &-email {
+      max-height: 0;
+      visibility: hidden;
+      animation: slide-email-up 0.4s ease-out both;
+
+      &--show {
+        animation: slide-email-down 0.8s ease-in both;
+      }
+    }
+  }
+
+  &__required {
+    color: $danger;
+  }
+
+  &__optional {
+    font-size: 0.75rem;
+    font-weight: 400;
+  }
+
+  &__input {
+    &--error {
+      border: 0.5px solid $danger;
+    }
+  }
+
+  &__error {
+    position: absolute;
+    color: $danger;
+    font-size: 0.75rem;
+    right: 5%;
+    top: 57%;
+
+    &--email {
+      top: 45%;
+    }
+
+    &--state {
+      right: 12%;
+    }
+
+    &--dob {
+      right: 15%;
+    }
+
+    &--joindate {
+      right: 2rem;
+    }
+  }
+
+  &__success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+    &-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding: 1rem 0;
+    }
+
+    &-icon {
+      color: $success;
+      font-size: 6.5rem;
+      animation: successAnimation 1s ease-in-out forwards;
+    }
+
+    &-bottom {
+      padding: 1rem 1.5rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+    &-button {
+      text-align: center;
+    }
+  }
+}
+
+@keyframes slide-email-down {
+  from {
+    max-height: 0;
+    visibility: hidden;
+    padding: 0;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  to {
+    max-height: 100px;
+    visibility: visible;
+    padding-bottom: 1rem;
+    opacity: 1;
+  }
+}
+
+@keyframes slide-email-up {
+  from {
+    max-height: 100px;
+    visibility: visible;
+    opacity: 1;
+    padding-bottom: 1rem;
+  }
+
+  50% {
+    opacity: 0.1;
+  }
+
+  to {
+    opacity: 0;
+    max-height: 0;
+    visibility: hidden;
+    padding: 0;
+  }
+}
+
+.pfa {
+  max-width: none;
+}

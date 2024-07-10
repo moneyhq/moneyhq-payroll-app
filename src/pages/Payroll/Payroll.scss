@@ -413,6 +413,11 @@
           }
         }
       }
+
+      &-review {
+        display: contents;
+        color: $button-bg;
+      }
     }
 
     &__child {
