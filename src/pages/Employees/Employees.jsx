@@ -107,7 +107,7 @@ export default function Employees() {
 
   return (
     <>
-      <div className="home-user">
+      <div className="home-user employees-user">
         <div className="home-user__left">
           <span className="home-user__left--name">Welcome Sammy!</span>
           <span className="home-user__left--date">{date}</span>
@@ -127,7 +127,7 @@ export default function Employees() {
         </div>
       </div>
 
-      <div className="home-header">
+      <div className="home-header employees-header">
         <div className="home-header__title">
           <h1 className="home-header__title--text employees__header--t">
             Employees
@@ -245,18 +245,21 @@ export default function Employees() {
                   <tr
                     className="em-table__body-row"
                     key={employee.id}
-                    onClick={() => handleRowClick(employee.id)}
+                    // onClick={() => handleRowClick(employee.id)}
                   >
-                    <td className="em-table__body-cell em-table__body-cell--name">
+                    <td
+                      className="em-table__body-cell em-table__body-cell--name"
+                      onClick={() => handleRowClick(employee.id)}
+                    >
                       {employee.first_name} {employee.last_name}
                     </td>
                     <td className="em-table__body-cell em-table__body-cell--contact">
                       <span className="em-table__body-span em-table__body-span--email">
                         {employee.company_email}
                       </span>
-                      <span className="em-table__body-span em-table__body-span--phone">
+                      {/* <span className="em-table__body-span em-table__body-span--phone">
                         {employee.phone_number}
-                      </span>
+                      </span> */}
                     </td>
                     <td className="em-table__body-cell em-table__body-cell--joindate">
                       {formatDate(employee.join_date)}

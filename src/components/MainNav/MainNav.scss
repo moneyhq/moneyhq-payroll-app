@@ -11,7 +11,8 @@
     height: 100vh;
     overflow-x: hidden;
     z-index: 1;
-    background-color: $black;
+    position: fixed;
+    border-right: 0.25px solid $border-secondary;
   }
 
   &__dummy {
@@ -42,8 +43,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
-      background: $black no-repeat url(../../assets/icons/arrow_dropdown.svg)
-        95% 50%;
+      background: no-repeat url(../../assets/icons/arrow_dropdown.svg) 95% 50%;
       padding: 1rem;
     }
   }
@@ -71,7 +71,7 @@
   }
 
   &__company {
-    color: $white;
+    color: $black;
     font-weight: 600;
     font-size: 0.85rem;
   }
@@ -98,6 +98,10 @@
 
   &__item {
     display: contents;
+
+    &hover {
+      color: $text-blue;
+    }
   }
 
   &__link {
@@ -113,6 +117,7 @@
 
       @include tablet {
         background-color: rgba($color: $white, $alpha: 0.25);
+        color: $text-blue;
       }
     }
 
@@ -120,26 +125,30 @@
       display: flex;
       gap: 0.5rem;
       border: none;
-      color: $white;
+      color: #001b66;
       padding: 0.5rem;
       border-radius: 4px 0 0 4px;
+
+      &:hover {
+        color: $text-blue;
+        background-color: $background-secondary;
+      }
     }
 
     &--active {
       @include tablet {
-        background-color: rgba($color: $very-light-gray, $alpha: 0.96);
-        color: $black;
+        background-color: #d1e4f5;
 
         &:hover {
-          background-color: $light-gray;
-          color: $black;
+          background-color: $hover-default;
         }
       }
     }
 
     &-icon {
+      color: #78b7f2;
       &--active {
-        filter: invert(100%);
+        // filter: invert(100%);
       }
     }
   }

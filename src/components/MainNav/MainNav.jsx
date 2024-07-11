@@ -6,6 +6,13 @@ import home from "../../assets/icons/home.svg";
 import payroll from "../../assets/icons/payroll.svg";
 import employees from "../../assets/icons/employees.svg";
 import reports from "../../assets/icons/reports.svg";
+import {
+  faChartSimple,
+  faHouse,
+  faMoneyBillWave,
+  faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function MainNav({ theme }) {
   const [clickedMenu, setClickedMenu] = useState(false);
@@ -70,13 +77,13 @@ export default function MainNav({ theme }) {
               }`}
               to="/"
             >
-              <img
+              <div
                 className={`main-nav__link-icon ${
                   activePath === "/" ? "main-nav__link-icon--active" : ""
                 }`}
-                src={home}
-                alt=""
-              />
+              >
+                <FontAwesomeIcon icon={faHouse} />
+              </div>
               <p className="main-nav__link-text">Home</p>
             </Link>
           </li>
@@ -89,15 +96,15 @@ export default function MainNav({ theme }) {
               }`}
               to="/payroll"
             >
-              <img
+              <div
                 className={`main-nav__link-icon ${
                   activePath.startsWith("/payroll")
                     ? "main-nav__link-icon--active"
                     : ""
                 }`}
-                src={payroll}
-                alt=""
-              />
+              >
+                <FontAwesomeIcon icon={faMoneyBillWave} />
+              </div>
               <p className="main-nav__link-text">Payroll</p>
             </Link>
           </li>
@@ -110,15 +117,15 @@ export default function MainNav({ theme }) {
               }`}
               to="/employees"
             >
-              <img
+              <div
                 className={`main-nav__link-icon ${
                   activePath.startsWith("/employees")
                     ? "main-nav__link-icon--active"
                     : ""
                 }`}
-                src={employees}
-                alt=""
-              />
+              >
+                <FontAwesomeIcon icon={faUserGroup} />
+              </div>
               <p className="main-nav__link-text">Employees</p>
             </Link>
           </li>
@@ -131,15 +138,15 @@ export default function MainNav({ theme }) {
               }`}
               to="/reports"
             >
-              <img
+              <div
                 className={`main-nav__link-icon ${
                   activePath.startsWith("/reports")
                     ? "main-nav__link-icon--active"
                     : ""
                 }`}
-                src={reports}
-                alt=""
-              />
+              >
+                <FontAwesomeIcon icon={faChartSimple} />
+              </div>
               <p className="main-nav__link-text">Reports</p>
             </Link>
           </li>

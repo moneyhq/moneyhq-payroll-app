@@ -23,6 +23,7 @@
       align-items: center;
       color: $text-tertiary;
       gap: 0.5rem;
+      margin-top: 0.75rem;
     }
 
     &__text {
@@ -31,6 +32,8 @@
       cursor: pointer;
 
       &--employees {
+        color: $text-tertiary;
+
         &:hover {
           color: $link-default;
         }
@@ -42,6 +45,7 @@
     display: none;
 
     @include tablet {
+      display: block;
       font-size: 1.25rem;
       font-weight: 600;
       color: $text-secondary;
@@ -58,12 +62,91 @@
     }
   }
 
+  &-body {
+    padding: 0 2rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &-container {
+    border: 0.01px solid $border-secondary;
+    border-radius: 0.5rem;
+    box-shadow: inset 1px -1px 15px 6px rgba(178, 207, 235, 0.1);
+
+    &__wrap {
+      display: none;
+
+      @include tablet {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 2rem;
+      }
+
+      @include desktop {
+        display: grid;
+        grid-template-rows: none;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+      }
+    }
+  }
+
+  &-subhead {
+    padding: 0.75rem 1rem;
+    border-bottom: 0.01px solid $border-secondary;
+    color: $text-tertiary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__icon {
+      font-size: 0.85rem;
+    }
+
+    &__payslips {
+      border: none;
+    }
+  }
+
+  &-content {
+    padding-bottom: 1.5rem;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 1rem;
+      padding-bottom: 1.5rem;
+    }
+
+    &__payment {
+      @include tablet {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    &__address {
+      @include tablet {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
   &-profile {
     text-align: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     border-bottom: 0.5px solid $border-default;
+    padding-top: 1rem;
+
+    @include tablet {
+      padding-top: 0;
+      border: none;
+      align-items: flex-start;
+      text-align: left;
+    }
 
     &__avi {
       width: 5rem;
@@ -78,15 +161,172 @@
 
     &__data {
       padding: 0.5rem 1rem;
+
+      @include tablet {
+        padding: 0.5rem 0;
+      }
     }
 
     &__name {
       font-size: 1.25rem;
       font-weight: 600;
+
+      @include tablet {
+        font-size: 1rem;
+        font-weight: 400;
+      }
     }
 
     &__role {
       color: $text-tertiary;
+    }
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 0;
+    gap: 1rem;
+
+    @include tablet {
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      padding: 0;
+    }
+  }
+
+  &-item {
+    flex: 1;
+  }
+
+  &-label {
+    font-size: 0.75rem;
+    color: $text-tertiary;
+  }
+
+  &-user {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &-role {
+    @include tablet {
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &-loc {
+    @include tablet {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &-comply {
+    @include tablet {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &-address {
+    @include tablet {
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &-payment {
+    @include tablet {
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &-table {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+
+    &__header {
+      &-row {
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1.5fr repeat(5, 1fr);
+        align-items: end;
+        border-bottom: 0.1px solid $border-default;
+        padding-bottom: 0.25rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: $text-tertiary;
+      }
+
+      &-cell {
+        &--actions {
+          text-align: center;
+        }
+
+        &--employer {
+          text-align: center;
+        }
+      }
+    }
+
+    &__body {
+      &-row {
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: 1.5fr repeat(5, 1fr);
+        align-items: center;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $bg-container1;
+        }
+
+        &:nth-child(even) {
+          background-color: $bg-selected;
+
+          &:hover {
+            background-color: $bg-container1;
+          }
+        }
+      }
+
+      &-actions {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        color: $button-bg;
+        font-size: 0.75rem;
+        cursor: pointer;
+        text-align: center;
+        padding: 0.625rem 0;
+        transition: all 0.3s ease;
+
+        &--1 {
+          gap: 0.25rem;
+        }
+
+        &--item {
+          display: grid;
+          font-weight: 400;
+          justify-items: center;
+
+          &:hover {
+            color: $text-secondary;
+          }
+        }
+      }
+
+      &-employer {
+        text-align: center;
+      }
     }
   }
 }

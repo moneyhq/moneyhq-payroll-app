@@ -2,9 +2,23 @@
 @use "../../styles/partials/colors" as *;
 
 .employees {
-  padding: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
+  @include tablet {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-user {
+    border-bottom: none;
+
+    @include tablet {
+      border-bottom: 1px solid $border-default;
+    }
+  }
+
+  &-header {
+    display: flex;
+  }
 
   &__header {
     display: flex;
@@ -13,7 +27,13 @@
     margin-bottom: 1rem;
 
     &--t {
-      font-size: 1.75rem;
+      font-size: 1.25rem;
+      padding: 0.25rem 1rem;
+
+      @include tablet {
+        font-size: 1.75rem;
+        padding: 0;
+      }
     }
 
     &--act {
@@ -103,6 +123,14 @@
         display: none;
       }
     }
+
+    &--desktop {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+    }
   }
 
   &__pagination {
@@ -160,13 +188,17 @@
 
 .employee {
   &-card {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem 1rem;
     border-top: 1px solid $border-default;
     display: grid;
     gap: 1px 1px;
     grid-template-columns: auto 2.5rem;
     grid-template-rows: 1fr;
     align-items: center;
+
+    @include tablet {
+      padding: 1rem 0.5rem;
+    }
 
     &:hover {
       background-color: $hover-default;

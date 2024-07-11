@@ -8,9 +8,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDate } from "../../utils/formatFunctions";
 import { Link } from "react-router-dom";
+import { useModal } from "../../contexts/ModalContext";
 
 export default function PayrunReview() {
   const date = formatDate(new Date());
+  const { openModal } = useModal();
 
   return (
     <section className="pr">
@@ -97,7 +99,10 @@ export default function PayrunReview() {
                 to proceed
               </span>
             </div>
-            <div className="button-secondary pr-details__button">
+            <div
+              onClick={() => openModal("addEmployeesModal")}
+              className="button-secondary pr-details__button"
+            >
               Add an Employee
             </div>
           </div>

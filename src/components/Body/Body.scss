@@ -5,16 +5,37 @@
   display: flex;
   flex-direction: column;
 
-  @include tablet {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    background-color: $text;
-    height: 100vh;
-  }
+  // @include tablet {
+  //   background-color: $bg-overlay;
+  // }
 
   &-body {
     width: 100%;
     background-color: $background;
     border-top-left-radius: 1rem;
+
+    @include tablet {
+      margin-left: 13.5rem;
+      width: calc(100% - 13.5rem);
+      min-height: 100vh;
+    }
   }
 }
+
+// .main {
+//   display: flex;
+//   flex-direction: column;
+
+//   @include tablet {
+//     display: grid;
+//     grid-template-columns: auto 1fr;
+//     background-color: $text;
+//     height: 100vh;
+//   }
+
+//   &-body {
+//     width: 100%;
+//     background-color: $background;
+//     border-top-left-radius: 1rem;
+//   }
+// }
